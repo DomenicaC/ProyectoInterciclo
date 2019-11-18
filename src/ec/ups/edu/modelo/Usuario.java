@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ec.ups.edu;
+package ec.ups.edu.modelo;
 
 /**
  *
  * @author Domenica Cañizares
  */
-public class clase {
+public class Usuario {
     
 }
