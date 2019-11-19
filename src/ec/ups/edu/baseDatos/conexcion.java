@@ -3,19 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ec.ups.edu.modelo;
-
-import java.util.Date;
+package ec.ups.edu.baseDatos;
 
 /**
  *
  * @author Domenica Cañizares
  */
-public class Factura_Cabecera {
-    
-    private String codigo;
-    private Date fecha;
-    private Double total;
-    private Double IVA;
+public class conexcion {
     
 }

@@ -11,4 +11,11 @@ package ec.ups.edu.modelo;
  */
 public class Vehiculo {
     
+    private String codigo;
+    private String modelo;
+    private String color;
+    private String asiento;
+    
+    
+    
 }

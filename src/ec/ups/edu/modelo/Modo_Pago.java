@@ -11,4 +11,7 @@ package ec.ups.edu.modelo;
  */
 public class Modo_Pago {
     
+    private String codigo;
+    private String descripcion;
+    
 }

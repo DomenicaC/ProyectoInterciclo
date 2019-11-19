@@ -11,4 +11,7 @@ package ec.ups.edu.modelo;
  */
 public class Geografia {
     
+    private String codigo;
+    private String nombre;
+    
 }

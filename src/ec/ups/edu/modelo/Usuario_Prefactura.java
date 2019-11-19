@@ -5,10 +5,15 @@
  */
 package ec.ups.edu.modelo;
 
+import java.util.Date;
+
 /**
  *
  * @author Domenica Cañizares
  */
 public class Usuario_Prefactura {
+    
+    private String codigo;
+    private Date fecha;
     
 }

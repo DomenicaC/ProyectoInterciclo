@@ -11,4 +11,8 @@ package ec.ups.edu.modelo;
  */
 public class Ruta {
     
+    private String codigo;
+    private String descripcion;
+    private double valor;
+    
 }

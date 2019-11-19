@@ -5,10 +5,19 @@
  */
 package ec.ups.edu.modelo;
 
+import java.util.Date;
+
 /**
  *
  * @author Domenica Cañizares
  */
 public class Notificacion {
+    
+    private String codigo;
+    private String titulo;
+    private String descripcion;
+    private Date fecha;
+    private boolean estado;
+    
     
 }

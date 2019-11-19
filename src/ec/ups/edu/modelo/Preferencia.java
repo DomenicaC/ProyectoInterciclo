@@ -11,4 +11,7 @@ package ec.ups.edu.modelo;
  */
 public class Preferencia {
     
+    private String codigo;
+    private String descripcion;
+    
 }
