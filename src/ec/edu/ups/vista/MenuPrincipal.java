@@ -5,12 +5,20 @@
  */
 package ec.edu.ups.vista;
 
+import ec.edu.ups.usuario.CrearUsuario;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Domenica Cañizares
  */
 public class MenuPrincipal extends javax.swing.JFrame {
 
+    String url = "jdbc:postgresql://localhost:5432/Proyecto_Interciclo";
+    String user = "postgres";
+    String password = "QLJPikrq7833";
+    
+    private CrearUsuario crearUsuario;
     /**
      * Creates new form NewMDIApplication
      */
@@ -49,7 +57,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
         fileMenu.setText("File");
 
         openMenuItem.setMnemonic('o');
-        openMenuItem.setText("Open");
+        openMenuItem.setText("Crear Usuario");
+        openMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                openMenuItemActionPerformed(evt);
+            }
+        });
         fileMenu.add(openMenuItem);
 
         saveMenuItem.setMnemonic('s');
@@ -126,6 +139,24 @@ public class MenuPrincipal extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_exitMenuItemActionPerformed
 
+    private void openMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openMenuItemActionPerformed
+        // TODO add your handling code here:
+         String x = CrearUsuario.x;
+        try {
+            if (x == null) {
+                if (crearUsuario == null || crearUsuario.isVisible() == false) {
+                    crearUsuario = new CrearUsuario(url, user, password);
+                    desktopPane.add(crearUsuario);
+                }
+            } else {
+                JOptionPane.showMessageDialog(this, "La ventana ya esta abierta");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+    }//GEN-LAST:event_openMenuItemActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -168,7 +199,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem copyMenuItem;
     private javax.swing.JMenuItem cutMenuItem;
     private javax.swing.JMenuItem deleteMenuItem;
-    private javax.swing.JDesktopPane desktopPane;
+    public static javax.swing.JDesktopPane desktopPane;
     private javax.swing.JMenu editMenu;
     private javax.swing.JMenuItem exitMenuItem;
     private javax.swing.JMenu fileMenu;

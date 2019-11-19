@@ -16,7 +16,7 @@ import java.sql.SQLException;
 public class BaseDatos {
      private Connection conexionBD;
     
-    public BaseDatos() {        
+    public BaseDatos(String usl ,String user, String password) {        
     }
     
     public Connection getConexionBD() {
@@ -29,7 +29,7 @@ public class BaseDatos {
 
     public void conectar(){
 
-      String url = "jdbc:postgresql://localhost:5432/BaseDatosDireccion";
+        String url = "jdbc:postgresql://localhost:5432/BaseDatosDireccion";
         String user = "postgres";
         String password = "QLJPikrq7833";
 

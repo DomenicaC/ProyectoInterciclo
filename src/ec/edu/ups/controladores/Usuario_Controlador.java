@@ -5,6 +5,8 @@
  */
 package ec.edu.ups.controladores;
 
+import ec.edu.ups.baseDatos.BaseDatos;
+import ec.edu.ups.modelo.Persona;
 import ec.edu.ups.modelo.Usuario;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -18,21 +20,22 @@ import java.util.Set;
  */
 public class Usuario_Controlador {
 
-    /*private BaseDeDatos MiBaseDatos;
-    String url = "jdbc:postgresql://localhost:5432/PROYECTO_INTERCICLO";
+    private BaseDatos MiBaseDatos;
+    String url = "jdbc:postgresql://localhost:5432/Proyecto_Interciclo";
     String user = "postgres";
     String password = "QLJPikrq7833";
 
-    public ControladorAuto(String url, String user, String password) {
-        MiBaseDatos = new BaseDeDatos(url, user, password);
+    public Usuario_Controlador(String url, String user, String password) { 
+         MiBaseDatos = new BaseDatos(url,user,password);
     }
-    
+
+  
     public void create(Usuario usuario) {
-        String sql = "INSERT INTO \"AUTO\" VALUES('" + usuario.getCedula()
-                + "','" + usuario.getModelo() + "'"
-                + ",'" + usuario.getColor() + "','"
-                + usuario.getAño() + "','"
-                + usuario.getPerCedula() + "');";
+        String sql = "INSERT INTO \"Usuario\" VALUES('"+usuario.getCodigo()+"','"
+                + usuario.getUsuario()
+                + "','" + usuario.getContraseña() + "'"
+                + ",'" + usuario.getFoto() + "','"               
+                + usuario.getValidar() + "');";
 
         System.out.println(sql);
         MiBaseDatos.conectar();
@@ -47,7 +50,7 @@ public class Usuario_Controlador {
         }
     }
 
-    public Usuario BuscarAuto(String cedula) {
+ /*   public Usuario BuscarAuto(String cedula) {
 
         Usuario usuario = new Usuario();
         try {

@@ -15,12 +15,12 @@ public class Usuario extends Persona {
     private String usuario;
     private String contraseña;
     private Byte foto;
-    private boolean validar;
+    private String validar;
 
     public Usuario() {
     }
 
-    public Usuario(int codigo, String usuario, String contraseña, Byte foto, boolean validar) {
+    public Usuario(int codigo, String usuario, String contraseña, Byte foto, String validar) {
         this.codigo = codigo;
         this.usuario = usuario;
         this.contraseña = contraseña;
@@ -60,11 +60,11 @@ public class Usuario extends Persona {
         this.foto = foto;
     }
 
-    public boolean isValidar() {
+    public String getValidar() {
         return validar;
     }
 
-    public void setValidar(boolean validar) {
+    public void setValidar(String validar) {
         this.validar = validar;
     }
 
@@ -73,4 +73,5 @@ public class Usuario extends Persona {
         return "Usuario{" + "codigo=" + codigo + ", usuario=" + usuario + ", contrase\u00f1a=" + contraseña + ", foto=" + foto + ", validar=" + validar + '}';
     }
 
+ 
 }
