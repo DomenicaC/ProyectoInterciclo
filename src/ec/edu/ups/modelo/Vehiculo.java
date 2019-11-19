@@ -3,12 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ec.ups.edu.controladores;
+package ec.edu.ups.modelo;
 
 /**
  *
  * @author Domenica Cañizares
  */
-public class Usuario_Controlador {
+public class Vehiculo {
+    
+    private String codigo;
+    private String modelo;
+    private String color;
+    private String asiento;
+    
+    
     
 }

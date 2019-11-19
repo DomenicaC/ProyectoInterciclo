@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ec.ups.edu.modelo;
+package ec.edu.ups.modelo;
 
 import java.util.Date;
 

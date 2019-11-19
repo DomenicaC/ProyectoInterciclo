@@ -3,21 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ec.ups.edu.modelo;
-
-import java.util.Date;
+package ec.edu.ups.controladores;
 
 /**
  *
  * @author Domenica Cañizares
  */
-public class Notificacion {
-    
-    private String codigo;
-    private String titulo;
-    private String descripcion;
-    private Date fecha;
-    private boolean estado;
-    
+public class Notificacion_Controlador {
     
 }

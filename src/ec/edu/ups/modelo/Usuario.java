@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ec.ups.edu.modelo;
+package ec.edu.ups.modelo;
 
 /**
  *
@@ -11,7 +11,7 @@ package ec.ups.edu.modelo;
  */
 public class Usuario extends Persona {
 
-    private String codigo;
+    private int codigo;
     private String usuario;
     private String contraseña;
     private Byte foto;
@@ -20,7 +20,7 @@ public class Usuario extends Persona {
     public Usuario() {
     }
 
-    public Usuario(String codigo, String usuario, String contraseña, Byte foto, boolean validar) {
+    public Usuario(int codigo, String usuario, String contraseña, Byte foto, boolean validar) {
         this.codigo = codigo;
         this.usuario = usuario;
         this.contraseña = contraseña;
@@ -28,11 +28,11 @@ public class Usuario extends Persona {
         this.validar = validar;
     }
 
-    public String getCodigo() {
+    public int getCodigo() {
         return codigo;
     }
 
-    public void setCodigo(String codigo) {
+    public void setCodigo(int codigo) {
         this.codigo = codigo;
     }
 

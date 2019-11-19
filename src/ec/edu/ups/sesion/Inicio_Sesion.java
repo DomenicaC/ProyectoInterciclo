@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ec.ups.edu.sesion;
+package ec.edu.ups.sesion;
 
-import ec.ups.edu.vista.MenuPrincipal;
+import ec.edu.ups.vista.MenuPrincipal;
 import javax.swing.JOptionPane;
 
 /**
