@@ -6,6 +6,9 @@
 package ec.edu.ups.controladores;
 
 import ec.edu.ups.modelo.Usuario;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -14,63 +17,147 @@ import java.util.Set;
  * @author Domenica Cañizares
  */
 public class Usuario_Controlador {
+
+    /*private BaseDeDatos MiBaseDatos;
+    String url = "jdbc:postgresql://localhost:5432/PROYECTO_INTERCICLO";
+    String user = "postgres";
+    String password = "QLJPikrq7833";
+
+    public ControladorAuto(String url, String user, String password) {
+        MiBaseDatos = new BaseDeDatos(url, user, password);
+    }
     
-    private Set<Usuario> lista;
-    private int codigo;
-    
-    public Set<Usuario> getLista(){
+    public void create(Usuario usuario) {
+        String sql = "INSERT INTO \"AUTO\" VALUES('" + usuario.getCedula()
+                + "','" + usuario.getModelo() + "'"
+                + ",'" + usuario.getColor() + "','"
+                + usuario.getAño() + "','"
+                + usuario.getPerCedula() + "');";
+
+        System.out.println(sql);
+        MiBaseDatos.conectar();
+        try {
+
+            Statement sta = MiBaseDatos.getConexionBD().createStatement();
+            sta.execute(sql);
+            MiBaseDatos.desconectar();
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    public Usuario BuscarAuto(String cedula) {
+
+        Usuario usuario = new Usuario();
+        try {
+
+            String sql = "SELECT * FROM \"AUTO\"WHERE\"AUT_PLACA\"='" + cedula + "';";
+            System.out.println("Base " + sql);
+
+            MiBaseDatos.conectar();
+            Statement sta = MiBaseDatos.getConexionBD().createStatement();
+            ResultSet res = sta.executeQuery(sql);
+
+            while (res.next()) {
+
+                usuario.setCedula(cedula);
+                usuario.setModelo(res.getString("AUT_MODELO"));
+                usuario.setColor(res.getString("AUT_COLOR"));
+                usuario.setAño(res.getInt("AUT_AÑO"));
+                usuario.setPerCedula(res.getString("PER_CEDULA"));
+
+            }
+            res.close();
+            sta.close();
+            MiBaseDatos.desconectar();
+
+        } catch (SQLException error) {
+
+            error.printStackTrace();
+
+        }
+        return usuario;
+    }
+
+    public void updateAuto(Usuario usuario) {
+
+        String sql = "UPDATE\"AUTO\" SET \"AUT_MODELO\" = '"
+                + usuario.getModelo() + "',\"AUT_COLOR\" = '"
+                + usuario.getColor() + "',\"AUT_AÑO\" = "
+                + usuario.getAño() + ",\"PER_CEDULA\" = '"
+                + usuario.getPerCedula() + "' WHERE \"AUT_PLACA\" = '" + auto.getPlaca() + "';";
+        System.out.println("Base de datos " + sql);
+
+        MiBaseDatos.conectar();
+        try {
+
+            Statement sta = MiBaseDatos.getConexionBD().createStatement();
+            sta.execute(sql);
+            MiBaseDatos.desconectar();
+
+        } catch (SQLException error) {
+
+            error.printStackTrace();
+
+        }
+
+    }
+
+    public void deleteAuto(String usuario) {
+
+        String sql = "DELETE FROM \"AUTO \"WHERE \"AUT_PLACA \"='" + usuario + "';";
+        System.out.println("Base eliminada " + sql);
+
+        MiBaseDatos.conectar();
+        try {
+
+            Statement sta = MiBaseDatos.getConexionBD().createStatement();
+            sta.execute(sql);
+            MiBaseDatos.desconectar();
+
+        } catch (SQLException error) {
+
+            error.printStackTrace();
+
+        }
+
+    }
+
+    public Set printUsuario() {
+
+        Set<Usuario> lista = new HashSet<>();
+        try {
+
+            String sql = "SELECT * FROM \"usuario\";";
+            System.out.println("Base listar" + sql);
+
+            MiBaseDatos.conectar();
+            Statement sta = MiBaseDatos.getConexionBD().createStatement();
+            ResultSet res = sta.executeQuery(sql);
+
+            while (res.next()) {
+
+                Usuario usuario = new Usuario();
+                usuario.setPlaca(res.getString("AUT_PLACA"));
+                usuario.setModelo(res.getString("AUT_MODELO"));
+                usuario.setColor(res.getString("AUT_COLOR"));
+                usuario.setAño(res.getInt("AUT_AÑO"));
+                usuario.setPerCedula(res.getString("PER_CEDULA"));
+                lista.add(usuario);
+
+            }
+            res.close();
+            sta.close();
+            MiBaseDatos.desconectar();
+
+        } catch (SQLException error) {
+
+            error.printStackTrace();
+
+        }
+
         return lista;
-    }
-    
-    public Usuario_Controlador() {
-        lista = new HashSet<>();
-        codigo = 1;
-    }
-    
-    public void create(Usuario usuario){
-        usuario.setCodigo(codigo);
-        codigo++;
-        lista.add(usuario);
-    }
-    //buscar el usuario con el codigo
-    public Usuario read(int codigo){
-        for (Usuario usuario : lista) {
-            if(usuario.getCodigo() == codigo){
-                return usuario;
-            }
-        }
-        return null;
-    }
-    
-    //buscar el usuario con su cedula
-    public Usuario readCedula(String cedula){
-        for (Usuario usuario : lista) {
-            if(usuario.getCedula().equals(cedula)){
-                return usuario;
-            }
-        }
-        return null;
-    }
-    
-    public void update(Usuario usuario){
-        if(lista.contains(usuario)){
-            lista.remove(usuario);
-            lista.add(usuario);
-        }
-    }
-    
-    public void delete(int codigo){
-        for (Usuario usuario : lista) {
-            if(usuario.getCodigo() == codigo){
-                lista.remove(usuario);
-                break;
-            }
-        }
-    }
-    
-    public void imprimir(){
-        for (Usuario usuario : lista) {
-            System.out.println(usuario.getNombre());
-        }
-    }
+
+    }*/
 }
