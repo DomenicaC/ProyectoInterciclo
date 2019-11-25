@@ -5,9 +5,16 @@
  */
 package ec.edu.ups.usuario;
 
+import ec.edu.ups.controladores.Persona_Controlador;
 import ec.edu.ups.modelo.Usuario;
 import ec.edu.ups.controladores.Usuario_Controlador;
+import ec.edu.ups.modelo.Persona;
 import ec.edu.ups.vista.MenuPrincipal;
+import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -17,7 +24,9 @@ import javax.swing.JOptionPane;
 public class CrearUsuario extends javax.swing.JInternalFrame {
 
     private Usuario_Controlador usuario_Controlador;
+    private Persona_Controlador persona_Controlador;
     public static String x;
+    private SimpleDateFormat formato;
     String url = "jdbc:postgresql://localhost:5432/Proyecto_Interciclo";
     String user = "postgres";
     String password = "QLJPikrq7833";
@@ -28,10 +37,12 @@ public class CrearUsuario extends javax.swing.JInternalFrame {
         initComponents();
         this.usuario_Controlador = new Usuario_Controlador(url, user, password);
         x = "x";
+        formato = new SimpleDateFormat("yyyy-MM-dd");
         int a = MenuPrincipal.desktopPane.getWidth() - this.getWidth();
         int b = MenuPrincipal.desktopPane.getHeight() - this.getHeight();
         setLocation(a / 2, b / 2);
         setVisible(true);
+        
         
     }
 
@@ -48,22 +59,22 @@ public class CrearUsuario extends javax.swing.JInternalFrame {
 
         jTextField2 = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        txtnombre = new javax.swing.JTextField();
+        txtusuario = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         txtcontraseña = new javax.swing.JTextField();
-        txtvalidar = new javax.swing.JTextField();
+        txtfecha = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         txtcodigo = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
+        txtnombre = new javax.swing.JTextField();
+        txtapellido = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        txtcedula = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
 
         jTextField2.setText("jTextField2");
@@ -78,18 +89,18 @@ public class CrearUsuario extends javax.swing.JInternalFrame {
         jLabel5.setText("Registro del Cliente");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 0, 241, -1));
 
-        txtnombre.addActionListener(new java.awt.event.ActionListener() {
+        txtusuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtnombreActionPerformed(evt);
+                txtusuarioActionPerformed(evt);
             }
         });
-        getContentPane().add(txtnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 140, 100, -1));
+        getContentPane().add(txtusuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 140, 100, -1));
 
         jLabel2.setFont(new java.awt.Font("Eras Medium ITC", 1, 12)); // NOI18N
         jLabel2.setText("Password:");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 140, -1, -1));
         getContentPane().add(txtcontraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 140, 103, -1));
-        getContentPane().add(txtvalidar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 170, 100, -1));
+        getContentPane().add(txtfecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 170, 100, -1));
 
         jLabel4.setFont(new java.awt.Font("Eras Medium ITC", 1, 12)); // NOI18N
         jLabel4.setText("Fecha Nacimineto:");
@@ -122,19 +133,19 @@ public class CrearUsuario extends javax.swing.JInternalFrame {
         });
         getContentPane().add(txtcodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 40, 38, -1));
 
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        txtnombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                txtnombreActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 80, 99, -1));
+        getContentPane().add(txtnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 80, 99, -1));
 
-        jTextField7.addActionListener(new java.awt.event.ActionListener() {
+        txtapellido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField7ActionPerformed(evt);
+                txtapellidoActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 90, 103, -1));
+        getContentPane().add(txtapellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 90, 103, -1));
 
         jLabel10.setFont(new java.awt.Font("Eras Medium ITC", 1, 12)); // NOI18N
         jLabel10.setText("Usuario:");
@@ -146,7 +157,7 @@ public class CrearUsuario extends javax.swing.JInternalFrame {
         jLabel11.setFont(new java.awt.Font("Eras Medium ITC", 1, 12)); // NOI18N
         jLabel11.setText("Cédula:");
         getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, -1));
-        getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, 100, -1));
+        getContentPane().add(txtcedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, 100, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/fondoventabas.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, -10, 410, 260));
@@ -154,28 +165,45 @@ public class CrearUsuario extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtnombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnombreActionPerformed
+    private void txtusuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtusuarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtnombreActionPerformed
+    }//GEN-LAST:event_txtusuarioActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         Usuario usuario = new Usuario();
-       usuario
+        usuario.setUsuario(txtusuario.getText());
+        usuario.setPassword(txtcontraseña.getText());
+        usuario_Controlador.create(usuario);
         
+        Persona persona = new Persona();
+        try {
+        
+        persona.setCodigo(Integer.parseInt(txtcodigo.getText()));
+        persona.setCedula(txtcedula.getText());
+        persona.setNombre(txtnombre.getText());
+        persona.setApellido(txtapellido.getText());        
+        persona.setFechaNac(formato.parse(txtfecha.getText()));
+        persona_Controlador.create(persona);
+        } catch (ParseException ex) {
+            Logger.getLogger(CrearUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(CrearUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        JOptionPane.showMessageDialog(this, "Usuaio Creado", "Crear Usuario", JOptionPane.OK_OPTION);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void txtcodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcodigoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtcodigoActionPerformed
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void txtnombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnombreActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_txtnombreActionPerformed
 
-    private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
+    private void txtapellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtapellidoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField7ActionPerformed
+    }//GEN-LAST:event_txtapellidoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -191,12 +219,12 @@ public class CrearUsuario extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField7;
+    private javax.swing.JTextField txtapellido;
+    private javax.swing.JTextField txtcedula;
     private javax.swing.JTextField txtcodigo;
     private javax.swing.JTextField txtcontraseña;
+    private javax.swing.JTextField txtfecha;
     private javax.swing.JTextField txtnombre;
-    private javax.swing.JTextField txtvalidar;
+    private javax.swing.JTextField txtusuario;
     // End of variables declaration//GEN-END:variables
 }

@@ -32,7 +32,7 @@ public class Usuario_Controlador {
   
     public void create(Usuario usuario) {
         String sql = "INSERT INTO \"Usuario\" VALUES('"+usuario.getUsuario()+"','"
-                + usuario.getPassword()+ "','"                              
+                + usuario.getPassword()                             
                 +  "');";
 
         System.out.println(sql);

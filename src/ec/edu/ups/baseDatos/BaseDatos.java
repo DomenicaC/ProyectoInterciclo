@@ -29,7 +29,7 @@ public class BaseDatos {
 
     public void conectar(){
 
-        String url = "jdbc:postgresql://localhost:5432/BaseDatosDireccion";
+        String url = "jdbc:postgresql://localhost:5432/Proyecto_Interciclo";
         String user = "postgres";
         String password = "QLJPikrq7833";
 
