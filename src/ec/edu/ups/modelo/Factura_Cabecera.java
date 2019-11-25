@@ -15,7 +15,7 @@ public class Factura_Cabecera {
     
     private String codigo;
     private Date fecha;
-    private Double total;
-    private Double IVA;
+   // private Double total;
+   // private Double IVA;
     
 }

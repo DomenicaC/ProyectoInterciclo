@@ -13,6 +13,7 @@ import java.util.Date;
  */
 public class Conductor extends Persona{
     
+   // private int codigo;
     private Double sueldo;
     private String descripcion;
     private Date fecha_contrato;
@@ -20,19 +21,21 @@ public class Conductor extends Persona{
     public Conductor() {
     }
 
-    public Conductor(Double sueldo, String descripcion, Date fecha_contrato) {
+    public Conductor(/*int codigo,*/ Double sueldo, String descripcion, Date fecha_contrato) {
+        //this.codigo = codigo;
         this.sueldo = sueldo;
         this.descripcion = descripcion;
         this.fecha_contrato = fecha_contrato;
     }
 
-    public Conductor(Double sueldo, String descripcion, Date fecha_contrato, String cedula, String nombre, String apellido, Date FechaNac) {
-        super(cedula, nombre, apellido, FechaNac);
-        this.sueldo = sueldo;
-        this.descripcion = descripcion;
-        this.fecha_contrato = fecha_contrato;
+   /* public int getCodigo(){
+        return codigo;
     }
-
+    
+    public void setCodigo(int codigo){
+        this.codigo = codigo;
+    }*/
+    
     public Double getSueldo() {
         return sueldo;
     }
@@ -59,8 +62,7 @@ public class Conductor extends Persona{
 
     @Override
     public String toString() {
-        return "Conductor{" + "sueldo=" + sueldo + ", descripcion=" + descripcion + ", fecha_contrato=" + fecha_contrato + '}';
+        return "Conductor{" + /*"codigo=" + codigo +*/ ", sueldo=" + sueldo + ", descripcion=" + descripcion + ", fecha_contrato=" + fecha_contrato + '}';
     }
-    
-   
+
 }

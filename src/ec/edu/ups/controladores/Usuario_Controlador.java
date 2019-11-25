@@ -34,8 +34,8 @@ public class Usuario_Controlador {
         String sql = "INSERT INTO \"Usuario\" VALUES('"+usuario.getCodigo()+"','"
                 + usuario.getUsuario()
                 + "','" + usuario.getContraseña() + "'"
-                + ",'" + usuario.getFoto() + "','"               
-                + usuario.getValidar() + "');";
+                + ",'" + usuario.getFoto()                
+                +  "');";
 
         System.out.println(sql);
         MiBaseDatos.conectar();

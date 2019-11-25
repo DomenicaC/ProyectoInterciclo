@@ -13,6 +13,7 @@ import java.util.Date;
  */
 public class Persona {
     
+    private int codigo;
     private String cedula;
     private String nombre;
     private String apellido;
@@ -22,12 +23,20 @@ public class Persona {
         
     }
 
-    public Persona(String cedula, String nombre, String apellido, Date FechaNac) {
-        
+    public Persona(int codigo, String cedula, String nombre, String apellido, Date FechaNac) {
+        this.codigo = codigo;
         this.cedula = cedula;
         this.nombre = nombre;
         this.apellido = apellido;
         this.FechaNac = FechaNac;
+    }
+
+    public int getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
     }
 
     public String getCedula() {
@@ -64,7 +73,7 @@ public class Persona {
 
     @Override
     public String toString() {
-        return "Persona{" + " cedula=" + cedula + ", nombre=" + nombre + ", apellido=" + apellido + ", FechaNac=" + FechaNac + '}';
+        return "Persona{" + "codigo=" + codigo + ", cedula=" + cedula + ", nombre=" + nombre + ", apellido=" + apellido + ", FechaNac=" + FechaNac + '}';
     }
 
 }
