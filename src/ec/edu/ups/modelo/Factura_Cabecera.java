@@ -13,9 +13,108 @@ import java.util.Date;
  */
 public class Factura_Cabecera {
     
-    private String codigo;
+    private int ruc;
     private Date fecha;
-   // private Double total;
-   // private Double IVA;
+    private double Subtotal;
+    private double iva;
+    private double total;
+    
+    //clases 
+    private Usuario usu;
+    private Factura_Detalle facDet;
+    private Modo_Pago modPago;
+    private Viaje viaje;
+
+    public Factura_Cabecera() {
+    }
+
+    public Factura_Cabecera(int ruc, Date fecha, double Subtotal, double iva, double total, Usuario usu, Factura_Detalle facDet, Modo_Pago modPago, Viaje viaje) {
+        this.ruc = ruc;
+        this.fecha = fecha;
+        this.Subtotal = Subtotal;
+        this.iva = iva;
+        this.total = total;
+        this.usu = usu;
+        this.facDet = facDet;
+        this.modPago = modPago;
+        this.viaje = viaje;
+    }
+
+    public int getRuc() {
+        return ruc;
+    }
+
+    public void setRuc(int ruc) {
+        this.ruc = ruc;
+    }
+
+    public Date getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
+    }
+
+    public double getSubtotal() {
+        return Subtotal;
+    }
+
+    public void setSubtotal(double Subtotal) {
+        this.Subtotal = Subtotal;
+    }
+
+    public double getIva() {
+        return iva;
+    }
+
+    public void setIva(double iva) {
+        this.iva = iva;
+    }
+
+    public double getTotal() {
+        return total;
+    }
+
+    public void setTotal(double total) {
+        this.total = total;
+    }
+
+    public Usuario getUsu() {
+        return usu;
+    }
+
+    public void setUsu(Usuario usu) {
+        this.usu = usu;
+    }
+
+    public Factura_Detalle getFacDet() {
+        return facDet;
+    }
+
+    public void setFacDet(Factura_Detalle facDet) {
+        this.facDet = facDet;
+    }
+
+    public Modo_Pago getModPago() {
+        return modPago;
+    }
+
+    public void setModPago(Modo_Pago modPago) {
+        this.modPago = modPago;
+    }
+
+    public Viaje getViaje() {
+        return viaje;
+    }
+
+    public void setViaje(Viaje viaje) {
+        this.viaje = viaje;
+    }
+
+    @Override
+    public String toString() {
+        return "Factura_Cabecera{" + "ruc=" + ruc + ", fecha=" + fecha + ", Subtotal=" + Subtotal + ", iva=" + iva + ", total=" + total + ", usu=" + usu + ", facDet=" + facDet + ", modPago=" + modPago + ", viaje=" + viaje + '}';
+    }
     
 }

@@ -13,17 +13,22 @@ import java.util.Objects;
  */
 public class Usuario extends Persona {
 
-   private String usuario;
-   private String password;
+   //private int codigo;
+    private String usuario;
+    private String contraseña;
+    private Byte foto;
+    
+    //clase
+    private Preferencia pre;
 
     public Usuario() {
     }
 
-
-    public Usuario(String usuario, String password) {
+    public Usuario(String usuario, String contraseña, Byte foto, Preferencia pre) {
         this.usuario = usuario;
-        this.password = password;
-        
+        this.contraseña = contraseña;
+        this.foto = foto;
+        this.pre = pre;
     }
 
     public String getUsuario() {
@@ -34,44 +39,32 @@ public class Usuario extends Persona {
         this.usuario = usuario;
     }
 
-    public String getPassword() {
-        return password;
+    public String getContraseña() {
+        return contraseña;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setContraseña(String contraseña) {
+        this.contraseña = contraseña;
     }
 
-
-
-    @Override
-    public int hashCode() {
-        int hash = 3;
-        hash = 11 * hash + Objects.hashCode(this.usuario);
-        hash = 11 * hash + Objects.hashCode(this.password);
-       
-        return hash;
+    public Byte getFoto() {
+        return foto;
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Usuario other = (Usuario) obj;
-        return true;
+    public void setFoto(Byte foto) {
+        this.foto = foto;
+    }
+
+    public Preferencia getPre() {
+        return pre;
+    }
+
+    public void setPre(Preferencia pre) {
+        this.pre = pre;
     }
 
     @Override
     public String toString() {
-        return "Usuario{" + "usuario=" + usuario + ", password=" + password + '}';
+        return "Usuario{" + "usuario=" + usuario + ", contrase\u00f1a=" + contraseña + ", foto=" + foto + ", pre=" + pre + '}';
     }
-
- 
 }

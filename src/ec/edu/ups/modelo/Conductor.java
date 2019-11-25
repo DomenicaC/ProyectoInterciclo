@@ -64,5 +64,4 @@ public class Conductor extends Persona{
     public String toString() {
         return "Conductor{" + /*"codigo=" + codigo +*/ ", sueldo=" + sueldo + ", descripcion=" + descripcion + ", fecha_contrato=" + fecha_contrato + '}';
     }
-
 }
