@@ -15,12 +15,12 @@ public class Usuario extends Persona {
 
    private String usuario;
    private String password;
-   private String validar;
 
-    public Usuario(String usuario, String password, String validar) {
+
+    public Usuario(String usuario, String password) {
         this.usuario = usuario;
         this.password = password;
-        this.validar = validar;
+        
     }
 
     public String getUsuario() {
@@ -39,20 +39,14 @@ public class Usuario extends Persona {
         this.password = password;
     }
 
-    public String getValidar() {
-        return validar;
-    }
 
-    public void setValidar(String validar) {
-        this.validar = validar;
-    }
 
     @Override
     public int hashCode() {
         int hash = 3;
         hash = 11 * hash + Objects.hashCode(this.usuario);
         hash = 11 * hash + Objects.hashCode(this.password);
-        hash = 11 * hash + Objects.hashCode(this.validar);
+       
         return hash;
     }
 
@@ -73,7 +67,7 @@ public class Usuario extends Persona {
 
     @Override
     public String toString() {
-        return "Usuario{" + "usuario=" + usuario + ", password=" + password + ", validar=" + validar + '}';
+        return "Usuario{" + "usuario=" + usuario + ", password=" + password + '}';
     }
 
  
