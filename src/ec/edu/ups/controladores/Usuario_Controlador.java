@@ -49,8 +49,8 @@ public class Usuario_Controlador {
             ex.printStackTrace();
         }
     }
-
- /*   public Usuario BuscarAuto(String cedula) {
+    
+    public Usuario BuscarAuto(String cedula) {
 
         Usuario usuario = new Usuario();
         try {
@@ -65,10 +65,14 @@ public class Usuario_Controlador {
             while (res.next()) {
 
                 usuario.setCedula(cedula);
-                usuario.setModelo(res.getString("AUT_MODELO"));
-                usuario.setColor(res.getString("AUT_COLOR"));
-                usuario.setAño(res.getInt("AUT_AÑO"));
-                usuario.setPerCedula(res.getString("PER_CEDULA"));
+                //usuario.setCodigo(codigo);
+                usuario.setNombre(url);
+                usuario.setApellido(sql);
+                usuario.setUsuario(user);
+                usuario.setContraseña(cedula);
+                usuario.setFechaNac(null);
+                usuario.setFoto(Byte.MIN_VALUE);
+                usuario.setValidar(sql);
 
             }
             res.close();
@@ -83,6 +87,8 @@ public class Usuario_Controlador {
         return usuario;
     }
 
+
+ /*   
     public void updateAuto(Usuario usuario) {
 
         String sql = "UPDATE\"AUTO\" SET \"AUT_MODELO\" = '"

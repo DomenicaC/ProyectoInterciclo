@@ -13,7 +13,7 @@ import java.util.Date;
  */
 public class Viaje {
     
-    private String codigo;
+    private int codigo;
     private Date fecha_salida;
     private Date fecha_retorno;
     private int asiento_compra;

@@ -3,17 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ec.edu.ups.modelo;
-
-import java.util.Date;
+package ec.edu.ups.controladores;
 
 /**
  *
  * @author Domenica Cañizares
  */
-public class Usuario_Prefactura {
-    
-    private String codigo;
-    private Date fecha;
+public class Persona_Controlador {
     
 }
