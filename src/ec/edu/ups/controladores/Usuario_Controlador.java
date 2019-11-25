@@ -31,9 +31,8 @@ public class Usuario_Controlador {
 
   
     public void create(Usuario usuario) {
-        String sql = "INSERT INTO \"Usuario\" VALUES('"+usuario.getCodigo()+"','"
-                + usuario.getUsuario()
-                + "','" + usuario.getPassword() + "'"                              
+        String sql = "INSERT INTO \"Usuario\" VALUES('"+usuario.getUsuario()+"','"
+                + usuario.getPassword()+ "','"                              
                 +  "');";
 
         System.out.println(sql);

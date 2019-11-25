@@ -16,6 +16,9 @@ public class Usuario extends Persona {
    private String usuario;
    private String password;
 
+    public Usuario() {
+    }
+
 
     public Usuario(String usuario, String password) {
         this.usuario = usuario;
