@@ -5,34 +5,23 @@
  */
 package ec.edu.ups.modelo;
 
+import java.util.Objects;
+
 /**
  *
  * @author Domenica Cañizares
  */
 public class Usuario extends Persona {
 
-    //private int codigo;
-    private String usuario;
-    private String contraseña;
-    private Byte foto;
+   private String usuario;
+   private String password;
+   private String validar;
 
-    public Usuario() {
-    }
-
-    public Usuario(int codigo, String usuario, String contraseña, Byte foto, String validar) {
-        //this.codigo = codigo;
+    public Usuario(String usuario, String password, String validar) {
         this.usuario = usuario;
-        this.contraseña = contraseña;
-        this.foto = foto;
+        this.password = password;
+        this.validar = validar;
     }
-
-    /*public int getCodigo() {
-        return codigo;
-    }
-
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
-    }*/
 
     public String getUsuario() {
         return usuario;
@@ -42,26 +31,49 @@ public class Usuario extends Persona {
         this.usuario = usuario;
     }
 
-    public String getContraseña() {
-        return contraseña;
+    public String getPassword() {
+        return password;
     }
 
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public Byte getFoto() {
-        return foto;
+    public String getValidar() {
+        return validar;
     }
 
-    public void setFoto(Byte foto) {
-        this.foto = foto;
+    public void setValidar(String validar) {
+        this.validar = validar;
     }
-    
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 11 * hash + Objects.hashCode(this.usuario);
+        hash = 11 * hash + Objects.hashCode(this.password);
+        hash = 11 * hash + Objects.hashCode(this.validar);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Usuario other = (Usuario) obj;
+        return true;
+    }
 
     @Override
     public String toString() {
-        return "Usuario{" + /*"codigo=" + codigo +*/ ", usuario=" + usuario + ", contrase\u00f1a=" + contraseña + ", foto=" + foto + '}';
+        return "Usuario{" + "usuario=" + usuario + ", password=" + password + ", validar=" + validar + '}';
     }
 
  

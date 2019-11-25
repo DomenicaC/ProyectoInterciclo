@@ -33,8 +33,7 @@ public class Usuario_Controlador {
     public void create(Usuario usuario) {
         String sql = "INSERT INTO \"Usuario\" VALUES('"+usuario.getCodigo()+"','"
                 + usuario.getUsuario()
-                + "','" + usuario.getContraseña() + "'"
-                + ",'" + usuario.getFoto()                
+                + "','" + usuario.getPassword() + "'"                              
                 +  "');";
 
         System.out.println(sql);
@@ -50,7 +49,7 @@ public class Usuario_Controlador {
         }
     }
     
-    public Usuario BuscarAuto(String cedula) {
+    /*public Usuario BuscarAuto(String cedula) {
 
         Usuario usuario = new Usuario();
         try {
@@ -72,7 +71,7 @@ public class Usuario_Controlador {
                 usuario.setContraseña(cedula);
                 usuario.setFechaNac(null);
                 usuario.setFoto(Byte.MIN_VALUE);
-                usuario.setValidar(sql);
+                //usuario.setValidar(sql);
 
             }
             res.close();

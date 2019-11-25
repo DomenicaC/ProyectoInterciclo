@@ -24,6 +24,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
      */
     public MenuPrincipal() {
         initComponents();
+        desktopPane.setBorder(new Fondo());
+        this.setExtendedState(MenuPrincipal.MAXIMIZED_BOTH);
+
     }
 
     /**
