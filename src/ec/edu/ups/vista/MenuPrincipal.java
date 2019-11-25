@@ -144,7 +144,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void openMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openMenuItemActionPerformed
         // TODO add your handling code here:
-         String x = CrearUsuario.x;
+        String x = CrearUsuario.x;
         try {
             if (x == null) {
                 if (crearUsuario == null || crearUsuario.isVisible() == false) {

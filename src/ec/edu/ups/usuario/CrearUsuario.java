@@ -35,16 +35,17 @@ public class CrearUsuario extends javax.swing.JInternalFrame {
      */
     public CrearUsuario(String url, String user, String password) {
         initComponents();
+        this.persona_Controlador = new Persona_Controlador(url, user, password);
         this.usuario_Controlador = new Usuario_Controlador(url, user, password);
-        x = "x";
         formato = new SimpleDateFormat("yyyy-MM-dd");
+        x = "x";
+        
         int a = MenuPrincipal.desktopPane.getWidth() - this.getWidth();
         int b = MenuPrincipal.desktopPane.getHeight() - this.getHeight();
         setLocation(a / 2, b / 2);
-        setVisible(true);
-        
-        
+        setVisible(true); 
     }
+
 
  
 
