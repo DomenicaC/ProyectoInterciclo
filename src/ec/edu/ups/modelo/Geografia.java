@@ -11,7 +11,7 @@ package ec.edu.ups.modelo;
  */
 public class Geografia {
     
-    private String codigo;
+    private int codigo;
     private String nombre;
     
     //clase
@@ -20,17 +20,17 @@ public class Geografia {
     public Geografia() {
     }
 
-    public Geografia(String codigo, String nombre, Tipo_Geografia tipGeo) {
+    public Geografia(int codigo, String nombre, Tipo_Geografia tipGeo) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.tipGeo = tipGeo;
     }
 
-    public String getCodigo() {
+    public int getCodigo() {
         return codigo;
     }
 
-    public void setCodigo(String codigo) {
+    public void setCodigo(int codigo) {
         this.codigo = codigo;
     }
 
