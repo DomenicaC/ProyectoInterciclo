@@ -11,22 +11,22 @@ package ec.edu.ups.modelo;
  */
 public class Modo_Pago {
     
-    private String codigo;
+    private int codigo;
     private String descripcion;
 
     public Modo_Pago() {
     }
 
-    public Modo_Pago(String codigo, String descripcion) {
+    public Modo_Pago(int codigo, String descripcion) {
         this.codigo = codigo;
         this.descripcion = descripcion;
     }
 
-    public String getCodigo() {
+    public int getCodigo() {
         return codigo;
     }
 
-    public void setCodigo(String codigo) {
+    public void setCodigo(int codigo) {
         this.codigo = codigo;
     }
 
