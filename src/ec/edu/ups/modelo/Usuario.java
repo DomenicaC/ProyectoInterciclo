@@ -15,7 +15,7 @@ public class Usuario extends Persona {
 
    //private int codigo;
     private String usuario;
-    private String contraseña;
+    private String password;
     private Byte foto;
     
     //clase
@@ -24,9 +24,9 @@ public class Usuario extends Persona {
     public Usuario() {
     }
 
-    public Usuario(String usuario, String contraseña, Byte foto, Preferencia pre) {
+    public Usuario(String usuario, String password, Byte foto, Preferencia pre) {
         this.usuario = usuario;
-        this.contraseña = contraseña;
+        this.password = password;
         this.foto = foto;
         this.pre = pre;
     }
@@ -39,12 +39,12 @@ public class Usuario extends Persona {
         this.usuario = usuario;
     }
 
-    public String getContraseña() {
-        return contraseña;
+    public String getPassword() {
+        return password;
     }
 
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
+    public void setPassword(String contraseña) {
+        this.password = contraseña;
     }
 
     public Byte getFoto() {
@@ -65,6 +65,6 @@ public class Usuario extends Persona {
 
     @Override
     public String toString() {
-        return "Usuario{" + "usuario=" + usuario + ", contrase\u00f1a=" + contraseña + ", foto=" + foto + ", pre=" + pre + '}';
+        return "Usuario{" + "usuario=" + usuario + ", Password=" + password + ", foto=" + foto + ", pre=" + pre + '}';
     }
 }
