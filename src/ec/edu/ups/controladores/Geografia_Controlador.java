@@ -89,8 +89,8 @@ public class Geografia_Controlador {
     public void updateGeo(Geografia geo) {
 
         String sql = "UPDATE\"Geografia\" SET \"geo_codigo\" = "
-                + geo.getCodigo() + ",\"geo_nombre\" = "
-                + geo.getNombre()+  " WHERE \"geo_codigo\" = " + geo.getCodigo() + ";";
+                + geo.getCodigo() + ",\"geo_nombre\" = '"
+                + geo.getNombre()+  "' WHERE \"geo_codigo\" = " + geo.getCodigo() + ";";
         System.out.println("BASE ACTUALIZADA" + sql);
 
         MiBaseDatos.conectar();

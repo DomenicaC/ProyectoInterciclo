@@ -89,8 +89,8 @@ public class TipoGeog_Controlador {
     public void updateTiGeo(Tipo_Geografia tiGeo) {
 
         String sql = "UPDATE\"Tipo_Geografia\" SET \"tiGeo_codigo\" = "
-                + tiGeo.getCodigo() + ",\"tiGeo_nombre\" = "
-                + tiGeo.getNombre()+  " WHERE \"tiGeo_codigo\" = " + tiGeo.getCodigo() + ";";
+                + tiGeo.getCodigo() + ",\"tiGeo_nombre\" = '"
+                + tiGeo.getNombre()+  "' WHERE \"tiGeo_codigo\" = " + tiGeo.getCodigo() + ";";
         System.out.println("BASE ACTUALIZADA" + sql);
 
         MiBaseDatos.conectar();

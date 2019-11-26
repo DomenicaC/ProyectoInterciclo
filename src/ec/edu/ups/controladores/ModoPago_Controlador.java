@@ -89,8 +89,8 @@ public class ModoPago_Controlador {
     public void updateModPa(Modo_Pago modPa) {
 
         String sql = "UPDATE\"Modo_Pago\" SET \"modPa_codigo\" = "
-                + modPa.getCodigo() + ",\"ModPa_descripcion\" = "
-                + modPa.getDescripcion()+  " WHERE \"modPa_codigo\" = " + modPa.getCodigo() + ";";
+                + modPa.getCodigo() + ",\"ModPa_descripcion\" = '"
+                + modPa.getDescripcion()+  "' WHERE \"modPa_codigo\" = " + modPa.getCodigo() + ";";
         System.out.println("BASE ACTUALIZADA" + sql);
 
         MiBaseDatos.conectar();
