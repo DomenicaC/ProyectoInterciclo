@@ -39,7 +39,7 @@ public class ModoPago_Controlador {
     
     public void createModPa(Modo_Pago modPa) {
 
-        String sql = "INSERT INTO \"Geografia\" VALUES(" + modPa.getCodigo() + ",'" + modPa.getDescripcion()+ "');";
+        String sql = "INSERT INTO \"Modo_Pago\" VALUES(" + modPa.getCodigo() + ",'" + modPa.getDescripcion()+ "');";
 
         System.out.println(sql);
 
@@ -72,7 +72,7 @@ public class ModoPago_Controlador {
             while (res.next()) {
 
                 modPa.setCodigo(codigo);
-                modPa.setDescripcion(res.getString("geo_descripcion"));
+                modPa.setDescripcion(res.getString("modPa_descripcion"));
 
             }
             res.close();
@@ -89,8 +89,8 @@ public class ModoPago_Controlador {
     public void updateModPa(Modo_Pago modPa) {
 
         String sql = "UPDATE\"Modo_Pago\" SET \"modPa_codigo\" = "
-                + modPa.getCodigo() + ",\"geo_descripcion\" = "
-                + modPa.getDescripcion()+  " WHERE \"geo_codigo\" = " + modPa.getCodigo() + ";";
+                + modPa.getCodigo() + ",\"ModPa_descripcion\" = "
+                + modPa.getDescripcion()+  " WHERE \"modPa_codigo\" = " + modPa.getCodigo() + ";";
         System.out.println("BASE ACTUALIZADA" + sql);
 
         MiBaseDatos.conectar();
