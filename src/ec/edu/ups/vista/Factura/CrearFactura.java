@@ -71,6 +71,10 @@ public class CrearFactura extends javax.swing.JInternalFrame {
         lblNomV1 = new javax.swing.JLabel();
         txtNomV1 = new javax.swing.JTextField();
 
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+
         lblTitulo.setFont(new java.awt.Font("Rockwell", 3, 48)); // NOI18N
         lblTitulo.setText("Crear Factura");
 

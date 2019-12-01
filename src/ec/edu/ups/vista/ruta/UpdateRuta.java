@@ -43,6 +43,10 @@ public class UpdateRuta extends javax.swing.JInternalFrame {
         jLabel7 = new javax.swing.JLabel();
         btnBuscar = new javax.swing.JButton();
 
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+
         jLabel1.setFont(new java.awt.Font("Rockwell Condensed", 3, 24)); // NOI18N
         jLabel1.setText("Modificar Ruta");
 

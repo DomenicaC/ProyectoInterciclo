@@ -68,6 +68,10 @@ public class EliminarFac extends javax.swing.JInternalFrame {
         txtDirC = new javax.swing.JTextField();
         lblTitulo = new javax.swing.JLabel();
 
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+
         txtSubtotal.setEditable(false);
         txtSubtotal.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
         txtSubtotal.setEnabled(false);

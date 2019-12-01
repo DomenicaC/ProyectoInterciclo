@@ -55,6 +55,9 @@ public class UpdateUsuario extends javax.swing.JInternalFrame {
         txtcedula = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
 
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel5.setFont(new java.awt.Font("Rockwell", 3, 24)); // NOI18N

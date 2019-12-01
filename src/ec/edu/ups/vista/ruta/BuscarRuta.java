@@ -42,6 +42,10 @@ public class BuscarRuta extends javax.swing.JInternalFrame {
         txtCod = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
 
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+
         txtCalPrin.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
 
         txtCalSec.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N

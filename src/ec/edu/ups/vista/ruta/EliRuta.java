@@ -43,6 +43,10 @@ public class EliRuta extends javax.swing.JInternalFrame {
         txtCalSec = new javax.swing.JTextField();
         txtCod = new javax.swing.JTextField();
 
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+
         jLabel1.setFont(new java.awt.Font("Rockwell Condensed", 3, 24)); // NOI18N
         jLabel1.setText("Eliminar Ruta");
 

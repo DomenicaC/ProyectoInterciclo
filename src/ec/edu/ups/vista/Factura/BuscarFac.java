@@ -67,6 +67,10 @@ public class BuscarFac extends javax.swing.JInternalFrame {
         lblFecha = new javax.swing.JLabel();
         btnBuscarCF = new javax.swing.JButton();
 
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+
         txtFecha.setEditable(false);
         txtFecha.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
         txtFecha.setEnabled(false);

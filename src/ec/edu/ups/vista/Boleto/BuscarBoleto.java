@@ -37,6 +37,10 @@ public class BuscarBoleto extends javax.swing.JInternalFrame {
         txtVolver = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+
         jLabel2.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
         jLabel2.setText("Código:");
 
