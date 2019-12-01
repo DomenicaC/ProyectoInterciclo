@@ -5,6 +5,15 @@
  */
 package ec.edu.ups.vista.usuario;
 
+import ec.edu.ups.controladores.Persona_Controlador;
+import ec.edu.ups.controladores.Usuario_Controlador;
+import ec.edu.ups.modelo.Persona;
+import ec.edu.ups.modelo.Usuario;
+import java.sql.SQLException;
+import java.text.ParseException;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Domenica Cañizares
