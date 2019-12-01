@@ -5,7 +5,7 @@
  */
 package ec.edu.ups.vista;
 
-import ec.edu.ups.usuario.CrearUsuario;
+import ec.edu.ups.vista.usuario.CrearUsuario;
 import javax.swing.JOptionPane;
 
 /**

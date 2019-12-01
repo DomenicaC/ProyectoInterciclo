@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ec.edu.ups.usuario;
+package ec.edu.ups.vista.usuario;
 
 import ec.edu.ups.controladores.Persona_Controlador;
 import ec.edu.ups.modelo.Usuario;
