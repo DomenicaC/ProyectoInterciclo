@@ -62,6 +62,11 @@ public class Inicio_Sesion extends javax.swing.JFrame {
                 botoningresarMouseClicked(evt);
             }
         });
+        botoningresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botoningresarActionPerformed(evt);
+            }
+        });
 
         botonsalir.setFont(new java.awt.Font("Elephant", 2, 18)); // NOI18N
         botonsalir.setText("Salir");
@@ -133,14 +138,13 @@ public class Inicio_Sesion extends javax.swing.JFrame {
                                     .addComponent(txtusuario, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtcontraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(107, 107, 107)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(107, 107, 107)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(33, 33, 33))))
             .addGroup(layout.createSequentialGroup()
@@ -201,7 +205,28 @@ public class Inicio_Sesion extends javax.swing.JFrame {
 
     private void botonsalir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonsalir1ActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_botonsalir1ActionPerformed
+
+    private void botoningresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botoningresarActionPerformed
+        // TODO add your handling code here:
+        String Usuario = "admin";
+        String Contraseña = "admin";
+        String Pass = new String(txtcontraseña.getPassword());
+        if (txtusuario.getText().equals(Usuario) && Pass.equals(Contraseña)) {
+            MenuPrincipal si = new MenuPrincipal();
+            si.setVisible(true);
+            dispose();
+
+        } else {
+            JOptionPane.showMessageDialog(this, "Usuario / Contraseña Incorrecta");
+        }
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_botoningresarActionPerformed
 
     /**
      * @param args the command line arguments

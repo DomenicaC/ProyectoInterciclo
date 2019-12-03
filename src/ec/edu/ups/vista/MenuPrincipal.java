@@ -44,6 +44,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jTextField5 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         menuBar = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
         openMenuItem = new javax.swing.JMenuItem();
@@ -99,6 +100,17 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jButton2.setText("Perfil de usuario");
         desktopPane.add(jButton2);
         jButton2.setBounds(10, 10, 125, 40);
+
+        jButton3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jButton3.setText("SALIR");
+        jButton3.setToolTipText("");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        desktopPane.add(jButton3);
+        jButton3.setBounds(80, 430, 100, 40);
 
         fileMenu.setMnemonic('f');
         fileMenu.setText("Usuario");
@@ -228,6 +240,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         
     }//GEN-LAST:event_openMenuItemActionPerformed
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_jButton3ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -280,6 +297,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu helpMenu1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;

@@ -192,6 +192,14 @@ public class CrearUsuario extends javax.swing.JInternalFrame {
             Logger.getLogger(CrearUsuario.class.getName()).log(Level.SEVERE, null, ex);
         }
         JOptionPane.showMessageDialog(this, "Usuaio Creado", "Crear Usuario", JOptionPane.OK_OPTION);
+        
+        txtapellido.setText("");
+        txtcedula.setText("");
+        txtcodigo.setText("");
+        txtcontraseña.setText("");
+        txtfecha.setText("");
+        txtnombre.setText("");
+        txtusuario.setText("");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void txtcodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcodigoActionPerformed
