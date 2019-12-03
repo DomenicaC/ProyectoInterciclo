@@ -12,7 +12,7 @@ import java.util.Date;
  * @author Domenica Cañizares
  */
 public class Boleto {
-    
+
     private int codigo;
     private Date fecha_compra;
     private double valor;
@@ -54,5 +54,5 @@ public class Boleto {
     public String toString() {
         return "Boleto{" + "codigo=" + codigo + ", fecha_compra=" + fecha_compra + ", valor=" + valor + '}';
     }
-    
+
 }

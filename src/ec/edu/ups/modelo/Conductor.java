@@ -18,6 +18,15 @@ public class Conductor extends Persona{
     private String descripcion;
     private Date fecha_contrato;
 
+    /*
+    
+    tabla Conductor
+    con_sueldo
+    con_desc
+    con_fecha_cont
+    
+    */
+    
     public Conductor() {
     }
 

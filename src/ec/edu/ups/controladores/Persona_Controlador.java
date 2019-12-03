@@ -22,6 +22,18 @@ public class Persona_Controlador {
     String password = "QLJPikrq7833";
     SimpleDateFormat formato;
 
+    /*
+    
+    tabla Persona
+    Columnas
+    per_codigo
+    per_cedula
+    per_nombre
+    per_apellido
+    per_fecha_nac
+    
+    */
+    
     public Persona_Controlador(String url, String user, String password) {
         MiBaseDatos = new BaseDatos(url, user, password);
         formato = new SimpleDateFormat("yyyy-MM-dd");

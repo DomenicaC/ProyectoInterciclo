@@ -54,6 +54,7 @@ public class UpdateUsuario extends javax.swing.JInternalFrame {
         jLabel11 = new javax.swing.JLabel();
         txtcedula = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
+        btnMod1 = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -61,11 +62,9 @@ public class UpdateUsuario extends javax.swing.JInternalFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel5.setFont(new java.awt.Font("Rockwell", 3, 24)); // NOI18N
-        jLabel5.setText("Buscar Cliente");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 0, 180, -1));
+        jLabel5.setText("Modificar Cliente");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 0, 220, 30));
 
-        txtusuario.setEditable(false);
-        txtusuario.setEnabled(false);
         txtusuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtusuarioActionPerformed(evt);
@@ -76,26 +75,20 @@ public class UpdateUsuario extends javax.swing.JInternalFrame {
         jLabel2.setFont(new java.awt.Font("Eras Medium ITC", 1, 12)); // NOI18N
         jLabel2.setText("Password:");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 120, -1, -1));
-
-        txtcontraseña.setEditable(false);
-        txtcontraseña.setEnabled(false);
         getContentPane().add(txtcontraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 120, 103, -1));
-
-        txtfecha.setEditable(false);
-        txtfecha.setEnabled(false);
         getContentPane().add(txtfecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, 100, -1));
 
         jLabel4.setFont(new java.awt.Font("Eras Medium ITC", 1, 12)); // NOI18N
         jLabel4.setText("Fecha Nacimineto:");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, -1));
 
-        btnMod.setText("Modificar Usuario");
+        btnMod.setText("Buscar");
         btnMod.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnModActionPerformed(evt);
             }
         });
-        getContentPane().add(btnMod, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 250, -1, -1));
+        getContentPane().add(btnMod, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 40, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Eras Medium ITC", 1, 12)); // NOI18N
         jLabel7.setText("Nombre:");
@@ -118,8 +111,6 @@ public class UpdateUsuario extends javax.swing.JInternalFrame {
         });
         getContentPane().add(txtcodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 40, 38, -1));
 
-        txtnombre.setEditable(false);
-        txtnombre.setEnabled(false);
         txtnombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtnombreActionPerformed(evt);
@@ -127,8 +118,6 @@ public class UpdateUsuario extends javax.swing.JInternalFrame {
         });
         getContentPane().add(txtnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 80, 99, -1));
 
-        txtapellido.setEditable(false);
-        txtapellido.setEnabled(false);
         txtapellido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtapellidoActionPerformed(evt);
@@ -149,7 +138,15 @@ public class UpdateUsuario extends javax.swing.JInternalFrame {
         getContentPane().add(txtcedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 40, 100, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/fondoventabas.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 410, 260));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 410, 260));
+
+        btnMod1.setText("Modificar Usuario");
+        btnMod1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMod1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnMod1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 250, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -194,9 +191,14 @@ public class UpdateUsuario extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtapellidoActionPerformed
 
+    private void btnMod1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMod1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnMod1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnMod;
+    private javax.swing.JButton btnMod1;
     private javax.swing.JButton btnVolver;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

@@ -15,6 +15,12 @@ import java.util.HashSet;
  */
 public class Viaje_Controlador {
     
+    /*
+    tabla Viaje
+    via_codigo int
+    via_fecha_sal
+    via_fecha_ret
     
+    */
     
 }

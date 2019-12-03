@@ -116,7 +116,7 @@ public class Ruta_Controlador {
         }
 
     }
-    
+
     public void deleteRuta(int codigo) {
 
         String sql = "DELETE FROM \"Ruta \"WHERE \"ruta_codigo \" = " + codigo + ";";
@@ -136,7 +136,7 @@ public class Ruta_Controlador {
         }
 
     }
-    
+
     public Set printBoleto() {
 
         Set<Ruta> lista = new HashSet<>();

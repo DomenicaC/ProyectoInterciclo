@@ -70,6 +70,9 @@ public class CrearFactura extends javax.swing.JInternalFrame {
         txtCallPrin = new javax.swing.JTextField();
         lblNomV1 = new javax.swing.JLabel();
         txtNomV1 = new javax.swing.JTextField();
+        lblCodV1 = new javax.swing.JLabel();
+        txtCallPrin1 = new javax.swing.JTextField();
+        btnBuscarVF1 = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -321,7 +324,7 @@ public class CrearFactura extends javax.swing.JInternalFrame {
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(38, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -373,8 +376,21 @@ public class CrearFactura extends javax.swing.JInternalFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtNomV1, javax.swing.GroupLayout.DEFAULT_SIZE, 56, Short.MAX_VALUE)
                     .addComponent(lblNomV1))
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        lblCodV1.setBackground(new java.awt.Color(255, 255, 255));
+        lblCodV1.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
+        lblCodV1.setText("Tarjeta de credito");
+
+        txtCallPrin1.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
+
+        btnBuscarVF1.setText("Validar");
+        btnBuscarVF1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarVF1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -431,6 +447,14 @@ public class CrearFactura extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addContainerGap())))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(56, 56, 56)
+                .addComponent(lblCodV1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtCallPrin1, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnBuscarVF1)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -449,8 +473,13 @@ public class CrearFactura extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblCodV1)
+                    .addComponent(txtCallPrin1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBuscarVF1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -628,62 +657,55 @@ public class CrearFactura extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_btnBuscarVFActionPerformed
 
+    private void btnBuscarVF1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarVF1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBuscarVF1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscarCF;
-    private javax.swing.JButton btnBuscarCF1;
     private javax.swing.JButton btnBuscarVF;
+    private javax.swing.JButton btnBuscarVF1;
     private javax.swing.JButton btnCancelarF;
     private javax.swing.JButton btnCrear;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblApeC;
-    private javax.swing.JLabel lblApeC1;
     private javax.swing.JLabel lblApeV;
     private javax.swing.JLabel lblCedC;
-    private javax.swing.JLabel lblCedC1;
     private javax.swing.JLabel lblCedV;
     private javax.swing.JLabel lblCodC;
-    private javax.swing.JLabel lblCodC1;
     private javax.swing.JLabel lblCodV;
+    private javax.swing.JLabel lblCodV1;
     private javax.swing.JLabel lblDirC;
-    private javax.swing.JLabel lblDirC1;
     private javax.swing.JLabel lblFecha;
     private javax.swing.JLabel lblIva;
     private javax.swing.JLabel lblNomC;
-    private javax.swing.JLabel lblNomC1;
     private javax.swing.JLabel lblNomV;
     private javax.swing.JLabel lblNomV1;
     private javax.swing.JLabel lblRuc;
     private javax.swing.JLabel lblSub;
     private javax.swing.JLabel lblTelC;
-    private javax.swing.JLabel lblTelC1;
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JLabel lblTot;
     private javax.swing.JTable tblServF;
     private javax.swing.JTextField txtApeC;
-    private javax.swing.JTextField txtApeC1;
     private javax.swing.JTextField txtApeV;
     private javax.swing.JTextField txtCallPrin;
+    private javax.swing.JTextField txtCallPrin1;
     private javax.swing.JTextField txtCedC;
-    private javax.swing.JTextField txtCedC1;
     private javax.swing.JTextField txtCodC;
-    private javax.swing.JTextField txtCodC1;
     private javax.swing.JTextField txtCodR;
     private javax.swing.JTextField txtDirC;
-    private javax.swing.JTextField txtDirC1;
     private javax.swing.JTextField txtFecha;
     private javax.swing.JTextField txtIva;
     private javax.swing.JTextField txtNomC;
-    private javax.swing.JTextField txtNomC1;
     private javax.swing.JTextField txtNomV;
     private javax.swing.JTextField txtNomV1;
     private javax.swing.JTextField txtRuc;
     private javax.swing.JTextField txtSubtotal;
     private javax.swing.JTextField txtTelC;
-    private javax.swing.JTextField txtTelC1;
     private javax.swing.JTextField txtTotal;
     // End of variables declaration//GEN-END:variables
 }

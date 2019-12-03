@@ -24,6 +24,15 @@ public class Usuario_Controlador {
     String url = "jdbc:postgresql://localhost:5432/Proyecto_Interciclo";
     String user = "postgres";
     String password = "QLJPikrq7833";
+    
+    /*
+    
+    tabla Usuario
+    usu_codigo  int
+    usu_usuario  String
+    usu_password  String
+    
+    */
 
     public Usuario_Controlador(String url, String user, String password) { 
          MiBaseDatos = new BaseDatos(url,user,password);

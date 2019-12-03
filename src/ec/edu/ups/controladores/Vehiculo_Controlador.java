@@ -11,4 +11,14 @@ package ec.edu.ups.controladores;
  */
 public class Vehiculo_Controlador {
     
+    /*
+    
+    tabla Vehiculo
+    vehi_codigo int
+    vehi_modelo String
+    vehi_color String
+    vehi_asiento  String
+    
+    */
+    
 }

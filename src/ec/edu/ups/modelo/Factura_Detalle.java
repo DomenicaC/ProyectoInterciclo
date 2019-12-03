@@ -17,6 +17,16 @@ public class Factura_Detalle {
 
     //clase
     private Boleto boleto;
+    
+    /*
+    
+    tabla Factura_Detalle
+    
+    fDet_codigo
+    fDet_cant
+    fDet_totalCP
+    
+    */
 
     public Factura_Detalle() {
     }
