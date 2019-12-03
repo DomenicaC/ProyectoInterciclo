@@ -39,7 +39,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         desktopPane = new javax.swing.JDesktopPane();
-        jLabel2 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
         jTextField5 = new javax.swing.JTextField();
@@ -59,16 +58,15 @@ public class MenuPrincipal extends javax.swing.JFrame {
         helpMenu = new javax.swing.JMenu();
         contentMenuItem = new javax.swing.JMenuItem();
         aboutMenuItem = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
         helpMenu1 = new javax.swing.JMenu();
         contentMenuItem1 = new javax.swing.JMenuItem();
         aboutMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/minilogo.png"))); // NOI18N
-        jLabel2.setToolTipText("");
-        desktopPane.add(jLabel2);
-        jLabel2.setBounds(170, 70, 420, 360);
 
         jTextField2.setEditable(false);
         jTextField2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -76,31 +74,31 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jTextField2.setText("Desarrollado por:");
         jTextField2.setEnabled(false);
         desktopPane.add(jTextField2);
-        jTextField2.setBounds(10, 470, 163, 20);
+        jTextField2.setBounds(40, 470, 171, 30);
 
         jTextField3.setEditable(false);
         jTextField3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField3.setText("Byron Vásquez");
         jTextField3.setEnabled(false);
         desktopPane.add(jTextField3);
-        jTextField3.setBounds(180, 470, 90, 30);
+        jTextField3.setBounds(0, 510, 110, 30);
 
         jTextField5.setEditable(false);
         jTextField5.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField5.setText("Doménica Vintimilla");
         jTextField5.setEnabled(false);
         desktopPane.add(jTextField5);
-        jTextField5.setBounds(280, 470, 100, 30);
+        jTextField5.setBounds(120, 510, 130, 30);
 
         jButton1.setFont(new java.awt.Font("Rockwell", 3, 12)); // NOI18N
-        jButton1.setText("Iniciar Vieje");
+        jButton1.setText("Iniciar Viaje");
         desktopPane.add(jButton1);
-        jButton1.setBounds(580, 70, 130, 40);
+        jButton1.setBounds(10, 70, 130, 40);
 
         jButton2.setFont(new java.awt.Font("Rockwell", 3, 12)); // NOI18N
         jButton2.setText("Perfil de usuario");
         desktopPane.add(jButton2);
-        jButton2.setBounds(583, 10, 127, 40);
+        jButton2.setBounds(10, 10, 125, 40);
 
         fileMenu.setMnemonic('f');
         fileMenu.setText("Usuario");
@@ -115,16 +113,15 @@ public class MenuPrincipal extends javax.swing.JFrame {
         fileMenu.add(openMenuItem);
 
         saveMenuItem.setMnemonic('s');
-        saveMenuItem.setText("Save");
+        saveMenuItem.setText("Eliminar Usuario");
         fileMenu.add(saveMenuItem);
 
         saveAsMenuItem.setMnemonic('a');
-        saveAsMenuItem.setText("Save As ...");
-        saveAsMenuItem.setDisplayedMnemonicIndex(5);
+        saveAsMenuItem.setText("Buscar Usuario");
         fileMenu.add(saveAsMenuItem);
 
         exitMenuItem.setMnemonic('x');
-        exitMenuItem.setText("Exit");
+        exitMenuItem.setText("Modificar Usuario");
         exitMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 exitMenuItemActionPerformed(evt);
@@ -138,19 +135,19 @@ public class MenuPrincipal extends javax.swing.JFrame {
         editMenu.setText("Rutas");
 
         cutMenuItem.setMnemonic('t');
-        cutMenuItem.setText("Cut");
+        cutMenuItem.setText("Crear Ruta");
         editMenu.add(cutMenuItem);
 
         copyMenuItem.setMnemonic('y');
-        copyMenuItem.setText("Copy");
+        copyMenuItem.setText("Buscar Ruta");
         editMenu.add(copyMenuItem);
 
         pasteMenuItem.setMnemonic('p');
-        pasteMenuItem.setText("Paste");
+        pasteMenuItem.setText("Eliminar Ruta");
         editMenu.add(pasteMenuItem);
 
         deleteMenuItem.setMnemonic('d');
-        deleteMenuItem.setText("Delete");
+        deleteMenuItem.setText("Borrar Ruta");
         editMenu.add(deleteMenuItem);
 
         menuBar.add(editMenu);
@@ -159,12 +156,18 @@ public class MenuPrincipal extends javax.swing.JFrame {
         helpMenu.setText("Vehiculos");
 
         contentMenuItem.setMnemonic('c');
-        contentMenuItem.setText("Contents");
+        contentMenuItem.setText("Crear Vehiculo");
         helpMenu.add(contentMenuItem);
 
         aboutMenuItem.setMnemonic('a');
-        aboutMenuItem.setText("About");
+        aboutMenuItem.setText("Buscar Vehiculo");
         helpMenu.add(aboutMenuItem);
+
+        jMenuItem1.setText("Modificar Vehiculo");
+        helpMenu.add(jMenuItem1);
+
+        jMenuItem2.setText("Eliminar Vehiculo");
+        helpMenu.add(jMenuItem2);
 
         menuBar.add(helpMenu);
 
@@ -172,12 +175,18 @@ public class MenuPrincipal extends javax.swing.JFrame {
         helpMenu1.setText("Conductores");
 
         contentMenuItem1.setMnemonic('c');
-        contentMenuItem1.setText("Contents");
+        contentMenuItem1.setText("Crear Conductor");
         helpMenu1.add(contentMenuItem1);
 
         aboutMenuItem1.setMnemonic('a');
-        aboutMenuItem1.setText("About");
+        aboutMenuItem1.setText("Buscar Conductor");
         helpMenu1.add(aboutMenuItem1);
+
+        jMenuItem3.setText("Eliminar Conductor");
+        helpMenu1.add(jMenuItem3);
+
+        jMenuItem4.setText("Modificar Conductor");
+        helpMenu1.add(jMenuItem4);
 
         menuBar.add(helpMenu1);
 
@@ -191,7 +200,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 502, Short.MAX_VALUE)
+            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 547, Short.MAX_VALUE)
         );
 
         pack();
@@ -271,7 +280,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu helpMenu1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField5;
