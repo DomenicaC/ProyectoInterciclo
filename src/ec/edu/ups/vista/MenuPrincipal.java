@@ -27,6 +27,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         initComponents();
         desktopPane.setBorder(new Fondo());
         this.setExtendedState(MenuPrincipal.MAXIMIZED_BOTH);
+        setLocationRelativeTo(null);
 
     }
 
@@ -44,9 +45,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jTextField2 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
         jTextField5 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         menuBar = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
         openMenuItem = new javax.swing.JMenuItem();
@@ -68,39 +70,29 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        desktopPane.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         jTextField2.setEditable(false);
         jTextField2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jTextField2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField2.setText("Desarrollado por:");
         jTextField2.setEnabled(false);
-        desktopPane.add(jTextField2);
-        jTextField2.setBounds(40, 470, 171, 30);
+        desktopPane.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 580, -1, -1));
 
         jTextField3.setEditable(false);
         jTextField3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField3.setText("Byron Vásquez");
         jTextField3.setEnabled(false);
-        desktopPane.add(jTextField3);
-        jTextField3.setBounds(0, 510, 110, 30);
+        desktopPane.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 620, 110, 30));
 
         jTextField5.setEditable(false);
         jTextField5.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField5.setText("Doménica Vintimilla");
         jTextField5.setEnabled(false);
-        desktopPane.add(jTextField5);
-        jTextField5.setBounds(120, 510, 130, 30);
-
-        jButton1.setFont(new java.awt.Font("Rockwell", 3, 12)); // NOI18N
-        jButton1.setText("Iniciar Viaje");
-        desktopPane.add(jButton1);
-        jButton1.setBounds(10, 70, 130, 40);
-
-        jButton2.setFont(new java.awt.Font("Rockwell", 3, 12)); // NOI18N
-        jButton2.setText("Perfil de usuario");
-        desktopPane.add(jButton2);
-        jButton2.setBounds(10, 10, 125, 40);
+        desktopPane.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 620, 130, 30));
 
         jButton3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/Login_37128.png"))); // NOI18N
         jButton3.setText("SALIR");
         jButton3.setToolTipText("");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -108,8 +100,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-        desktopPane.add(jButton3);
-        jButton3.setBounds(80, 430, 100, 40);
+        desktopPane.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1150, 600, 160, 60));
+        desktopPane.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        desktopPane.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/uli.png"))); // NOI18N
+        desktopPane.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 0, 470, 140));
+
+        getContentPane().add(desktopPane, java.awt.BorderLayout.CENTER);
 
         fileMenu.setMnemonic('f');
         fileMenu.setText("Usuario");
@@ -208,17 +206,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         setJMenuBar(menuBar);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 745, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(desktopPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 545, Short.MAX_VALUE)
-        );
-
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -293,9 +280,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu editMenu;
     private javax.swing.JMenuItem exitMenuItem;
     private javax.swing.JMenu fileMenu;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuItem jMenuItem1;
