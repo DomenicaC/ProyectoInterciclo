@@ -42,66 +42,38 @@ public class Inicio_Sesion extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        desktop = new javax.swing.JDesktopPane();
-        labelusuario1 = new javax.swing.JLabel();
-        botonsalir = new javax.swing.JButton();
         jTextField5 = new javax.swing.JTextField();
-        labelcontraseña = new javax.swing.JLabel();
-        labelusuario = new javax.swing.JLabel();
-        txtcontraseña = new javax.swing.JPasswordField();
         jLabel2 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
-        botonsalir1 = new javax.swing.JButton();
         botoningresar = new javax.swing.JButton();
         txtusuario = new javax.swing.JTextField();
+        txtcontraseña = new javax.swing.JPasswordField();
+        labelcontraseña = new javax.swing.JLabel();
+        labelusuario = new javax.swing.JLabel();
+        jTextField3 = new javax.swing.JTextField();
+        btnRegistrar = new javax.swing.JButton();
+        botonsalir = new javax.swing.JButton();
+        labelusuario1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        labelusuario1.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
-        labelusuario1.setText("Si no posee una cuenta registrese aqui:");
-
-        botonsalir.setFont(new java.awt.Font("Elephant", 2, 18)); // NOI18N
-        botonsalir.setText("Salir");
-        botonsalir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonsalirActionPerformed(evt);
-            }
-        });
 
         jTextField5.setEditable(false);
         jTextField5.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField5.setText("Doménica Vintimilla");
         jTextField5.setEnabled(false);
-
-        labelcontraseña.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
-        labelcontraseña.setText("Contraseña:");
-
-        labelusuario.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
-        labelusuario.setText("Usuario:");
+        getContentPane().add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 510, 110, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/minilogo.png"))); // NOI18N
         jLabel2.setToolTipText("");
-
-        jTextField3.setEditable(false);
-        jTextField3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField3.setText("Byron Vásquez");
-        jTextField3.setEnabled(false);
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 361, 202));
 
         jTextField2.setEditable(false);
         jTextField2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jTextField2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField2.setText("Desarrollado por:");
         jTextField2.setEnabled(false);
-
-        botonsalir1.setFont(new java.awt.Font("Elephant", 2, 18)); // NOI18N
-        botonsalir1.setText("Registrarse");
-        botonsalir1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonsalir1ActionPerformed(evt);
-            }
-        });
+        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 470, 225, -1));
 
         botoningresar.setFont(new java.awt.Font("Elephant", 2, 18)); // NOI18N
         botoningresar.setText("Ingresar");
@@ -115,136 +87,48 @@ public class Inicio_Sesion extends javax.swing.JFrame {
                 botoningresarActionPerformed(evt);
             }
         });
+        getContentPane().add(botoningresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 310, -1, -1));
+        getContentPane().add(txtusuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 220, 195, 28));
+        getContentPane().add(txtcontraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 270, 195, 30));
 
-        desktop.setLayer(labelusuario1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        desktop.setLayer(botonsalir, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        desktop.setLayer(jTextField5, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        desktop.setLayer(labelcontraseña, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        desktop.setLayer(labelusuario, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        desktop.setLayer(txtcontraseña, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        desktop.setLayer(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        desktop.setLayer(jTextField3, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        desktop.setLayer(jTextField2, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        desktop.setLayer(botonsalir1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        desktop.setLayer(botoningresar, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        desktop.setLayer(txtusuario, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        labelcontraseña.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
+        labelcontraseña.setText("Contraseña:");
+        getContentPane().add(labelcontraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, -1, -1));
 
-        javax.swing.GroupLayout desktopLayout = new javax.swing.GroupLayout(desktop);
-        desktop.setLayout(desktopLayout);
-        desktopLayout.setHorizontalGroup(
-            desktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(desktopLayout.createSequentialGroup()
-                .addGroup(desktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(desktopLayout.createSequentialGroup()
-                        .addGap(8, 8, 8)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(desktopLayout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addComponent(labelusuario)
-                        .addGap(67, 67, 67)
-                        .addComponent(txtusuario, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(desktopLayout.createSequentialGroup()
-                        .addComponent(labelcontraseña)
-                        .addGap(67, 67, 67)
-                        .addComponent(txtcontraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(desktopLayout.createSequentialGroup()
-                        .addGap(51, 51, 51)
-                        .addComponent(botoningresar)
-                        .addGap(45, 45, 45)
-                        .addComponent(botonsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(desktopLayout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(labelusuario1))
-                    .addGroup(desktopLayout.createSequentialGroup()
-                        .addGap(118, 118, 118)
-                        .addComponent(botonsalir1))
-                    .addGroup(desktopLayout.createSequentialGroup()
-                        .addGap(85, 85, 85)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(desktopLayout.createSequentialGroup()
-                        .addGap(85, 85, 85)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
-                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 31, Short.MAX_VALUE))
-        );
-        desktopLayout.setVerticalGroup(
-            desktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(desktopLayout.createSequentialGroup()
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(6, 6, 6)
-                .addGroup(desktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(desktopLayout.createSequentialGroup()
-                        .addGap(2, 2, 2)
-                        .addComponent(labelusuario))
-                    .addComponent(txtusuario, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(desktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(desktopLayout.createSequentialGroup()
-                        .addGap(3, 3, 3)
-                        .addComponent(labelcontraseña))
-                    .addComponent(txtcontraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(12, 12, 12)
-                .addGroup(desktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(botoningresar)
-                    .addComponent(botonsalir))
-                .addGap(12, 12, 12)
-                .addComponent(labelusuario1)
-                .addGap(50, 50, 50)
-                .addComponent(botonsalir1)
-                .addGap(12, 12, 12)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(6, 6, 6)
-                .addGroup(desktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 38, Short.MAX_VALUE))
-        );
+        labelusuario.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
+        labelusuario.setText("Usuario:");
+        getContentPane().add(labelusuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, -1, -1));
 
-        getContentPane().add(desktop, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -4, 400, 570));
+        jTextField3.setEditable(false);
+        jTextField3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField3.setText("Byron Vásquez");
+        jTextField3.setEnabled(false);
+        getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 510, 80, -1));
+
+        btnRegistrar.setFont(new java.awt.Font("Elephant", 2, 18)); // NOI18N
+        btnRegistrar.setText("Registrarse");
+        btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 430, -1, -1));
+
+        botonsalir.setFont(new java.awt.Font("Elephant", 2, 18)); // NOI18N
+        botonsalir.setText("Salir");
+        botonsalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonsalirActionPerformed(evt);
+            }
+        });
+        getContentPane().add(botonsalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 310, 114, -1));
+
+        labelusuario1.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
+        labelusuario1.setText("Si no posee una cuenta registrese aqui:");
+        getContentPane().add(labelusuario1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 360, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void botoningresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botoningresarMouseClicked
-        
-        String Usuario = "admin";
-        String Contraseña = "admin";
-        String Pass = new String(txtcontraseña.getPassword());
-        if (txtusuario.getText().equals(Usuario) && Pass.equals(Contraseña)) {
-            MenuPrincipal si = new MenuPrincipal();
-            si.setVisible(true);
-            dispose();
-
-        } else {
-            JOptionPane.showMessageDialog(this, "Usuario / Contraseña Incorrecta");
-        }
-    }//GEN-LAST:event_botoningresarMouseClicked
- 
-    
-    private void botonsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonsalirActionPerformed
-        // TODO add your handling code here:
-        dispose();
-    }//GEN-LAST:event_botonsalirActionPerformed
-
-    private void botonsalir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonsalir1ActionPerformed
-         String x = CrearUsuario.x;
-        try {
-            if (x == null) {
-                if (crearUsuario == null || crearUsuario.isVisible() == false) {
-                    crearUsuario = new CrearUsuario(url, user, password);
-                    desktop.add(crearUsuario);
-                }
-            } else {
-                JOptionPane.showMessageDialog(this, "La ventana ya esta abierta");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    
-        
-        
-    }//GEN-LAST:event_botonsalir1ActionPerformed
 
     private void botoningresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botoningresarActionPerformed
         // TODO add your handling code here:
@@ -259,13 +143,38 @@ public class Inicio_Sesion extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(this, "Usuario / Contraseña Incorrecta");
         }
-        
-        
-        
-        
-        
+
     }//GEN-LAST:event_botoningresarActionPerformed
 
+    private void botoningresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botoningresarMouseClicked
+
+        String Usuario = "admin";
+        String Contraseña = "admin";
+        String Pass = new String(txtcontraseña.getPassword());
+        if (txtusuario.getText().equals(Usuario) && Pass.equals(Contraseña)) {
+            MenuPrincipal si = new MenuPrincipal();
+            si.setVisible(true);
+            dispose();
+
+        } else {
+            JOptionPane.showMessageDialog(this, "Usuario / Contraseña Incorrecta");
+        }
+    }//GEN-LAST:event_botoningresarMouseClicked
+
+    private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
+       
+        Registrar cre = new Registrar();
+        cre.setVisible(true);
+        this.dispose();
+        
+    }//GEN-LAST:event_btnRegistrarActionPerformed
+
+    private void botonsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonsalirActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_botonsalirActionPerformed
+ 
+    
     /**
      * @param args the command line arguments
      */
@@ -304,8 +213,7 @@ public class Inicio_Sesion extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botoningresar;
     private javax.swing.JButton botonsalir;
-    private javax.swing.JButton botonsalir1;
-    public static javax.swing.JDesktopPane desktop;
+    private javax.swing.JButton btnRegistrar;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;

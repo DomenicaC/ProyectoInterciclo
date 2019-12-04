@@ -11,6 +11,7 @@ import java.util.Date;
  *
  * @author Domenica Cañizares
  */
+
 public class Viaje {
     
     private int codigo;

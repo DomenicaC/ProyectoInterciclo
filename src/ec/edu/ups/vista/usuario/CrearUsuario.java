@@ -30,9 +30,14 @@ public class CrearUsuario extends javax.swing.JInternalFrame {
     String url = "jdbc:postgresql://localhost:5432/Proyecto_Interciclo";
     String user = "postgres";
     String password = "QLJPikrq7833";
+
+    public CrearUsuario() {
+    }
     /**
      * Creates new form CrearUsuario
      */
+      
+    
     public CrearUsuario(String url, String user, String password) {
         initComponents();
         this.persona_Controlador = new Persona_Controlador(url, user, password);
@@ -40,14 +45,11 @@ public class CrearUsuario extends javax.swing.JInternalFrame {
         formato = new SimpleDateFormat("yyyy-MM-dd");
         x = "x";
         
-        int a = MenuPrincipal.desktopPane.getWidth() - this.getWidth();
-        int b = MenuPrincipal.desktopPane.getHeight() - this.getHeight();
-        setLocation(a / 2, b / 2);
-        setVisible(true); 
+//        int a = MenuPrincipal.desktopPane.getWidth() - this.getWidth();
+  //      int b = MenuPrincipal.desktopPane.getHeight() - this.getHeight();
+    //    setLocation(a / 2, b / 2);
+      //  setVisible(true); 
     }
-
-
- 
 
     /**
      * This method is called from within the constructor to initialize the form.

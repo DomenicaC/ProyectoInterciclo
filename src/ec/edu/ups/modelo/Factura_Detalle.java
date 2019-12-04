@@ -13,7 +13,7 @@ public class Factura_Detalle {
  
     private int codigo;
     private int cantidad;
-    private int totalCP;
+    private double totalCP;
 
     //clase
     private Boleto boleto;
@@ -31,7 +31,7 @@ public class Factura_Detalle {
     public Factura_Detalle() {
     }
 
-    public Factura_Detalle(int codigo, int cantidad, int totalCP, Boleto boleto) {
+    public Factura_Detalle(int codigo, int cantidad, double totalCP, Boleto boleto) {
         this.codigo = codigo;
         this.cantidad = cantidad;
         this.totalCP = totalCP;
@@ -54,11 +54,11 @@ public class Factura_Detalle {
         this.cantidad = cantidad;
     }
 
-    public int getTotalCP() {
+    public double getTotalCP() {
         return totalCP;
     }
 
-    public void setTotalCP(int totalCP) {
+    public void setTotalCP(double totalCP) {
         this.totalCP = totalCP;
     }
 
