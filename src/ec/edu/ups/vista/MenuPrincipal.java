@@ -5,6 +5,7 @@
  */
 package ec.edu.ups.vista;
 
+import ec.edu.ups.vista.usuario.BuscarUsuario;
 import ec.edu.ups.vista.usuario.CrearUsuario;
 import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
@@ -20,6 +21,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     String password = "QLJPikrq7833";
     
     private CrearUsuario crearUsuario;
+    private BuscarUsuario buscarUsuario;
     /**
      * Creates new form NewMDIApplication
      */
@@ -28,6 +30,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
         desktopPane.setBorder(new Fondo());
         this.setExtendedState(MenuPrincipal.MAXIMIZED_BOTH);
         setLocationRelativeTo(null);
+         this.setLocationRelativeTo(null);
+        setIconImage(new ImageIcon(("src/ec/edu/ups/imagenes/final.png")).getImage());
+        this.setTitle("***** BLABLABLA.ES *****");
 
     }
 
@@ -70,26 +75,21 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        desktopPane.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
         jTextField2.setEditable(false);
         jTextField2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jTextField2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField2.setText("Desarrollado por:");
         jTextField2.setEnabled(false);
-        desktopPane.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 580, -1, -1));
 
         jTextField3.setEditable(false);
         jTextField3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField3.setText("Byron Vásquez");
         jTextField3.setEnabled(false);
-        desktopPane.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 620, 110, 30));
 
         jTextField5.setEditable(false);
         jTextField5.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField5.setText("Doménica Vintimilla");
         jTextField5.setEnabled(false);
-        desktopPane.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 620, 130, 30));
 
         jButton3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/Login_37128.png"))); // NOI18N
@@ -100,12 +100,59 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-        desktopPane.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1150, 600, 160, 60));
-        desktopPane.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
-        desktopPane.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/uli.png"))); // NOI18N
-        desktopPane.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 0, 470, 140));
+
+        desktopPane.setLayer(jTextField2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        desktopPane.setLayer(jTextField3, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        desktopPane.setLayer(jTextField5, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        desktopPane.setLayer(jButton3, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        desktopPane.setLayer(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        desktopPane.setLayer(jLabel3, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        desktopPane.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        javax.swing.GroupLayout desktopPaneLayout = new javax.swing.GroupLayout(desktopPane);
+        desktopPane.setLayout(desktopPaneLayout);
+        desktopPaneLayout.setHorizontalGroup(
+            desktopPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(desktopPaneLayout.createSequentialGroup()
+                .addGroup(desktopPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel2))
+                .addGap(850, 850, 850)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(desktopPaneLayout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addGroup(desktopPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(desktopPaneLayout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(desktopPaneLayout.createSequentialGroup()
+                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(890, 890, 890)
+                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        desktopPaneLayout.setVerticalGroup(
+            desktopPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(desktopPaneLayout.createSequentialGroup()
+                .addGroup(desktopPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(440, 440, 440)
+                .addGroup(desktopPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(desktopPaneLayout.createSequentialGroup()
+                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addGroup(desktopPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(desktopPaneLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))))
+        );
 
         getContentPane().add(desktopPane, java.awt.BorderLayout.CENTER);
 
@@ -128,6 +175,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         saveAsMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/bus.png"))); // NOI18N
         saveAsMenuItem.setMnemonic('a');
         saveAsMenuItem.setText("Buscar Usuario");
+        saveAsMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveAsMenuItemActionPerformed(evt);
+            }
+        });
         fileMenu.add(saveAsMenuItem);
 
         saveMenuItem.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -210,7 +262,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void exitMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitMenuItemActionPerformed
-        System.exit(0);
     }//GEN-LAST:event_exitMenuItemActionPerformed
 
     private void openMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openMenuItemActionPerformed
@@ -235,6 +286,23 @@ public class MenuPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void saveAsMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveAsMenuItemActionPerformed
+        // TODO add your handling code here:
+        String x = BuscarUsuario.x;
+        try {
+            if (x == null) {
+                if (buscarUsuario == null || buscarUsuario.isVisible() == false) {
+                    buscarUsuario = new BuscarUsuario(url, user, password);
+                    desktopPane.add(buscarUsuario);
+                }
+            } else {
+                JOptionPane.showMessageDialog(this, "La ventana ya esta abierta");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_saveAsMenuItemActionPerformed
 
     /**
      * @param args the command line arguments
