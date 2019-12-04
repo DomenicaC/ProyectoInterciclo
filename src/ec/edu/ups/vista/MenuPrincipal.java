@@ -7,6 +7,7 @@ package ec.edu.ups.vista;
 
 import ec.edu.ups.vista.usuario.CrearUsuario;
 import javax.swing.JOptionPane;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -38,6 +39,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenu1 = new javax.swing.JMenu();
         desktopPane = new javax.swing.JDesktopPane();
         jTextField2 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
@@ -48,24 +50,21 @@ public class MenuPrincipal extends javax.swing.JFrame {
         menuBar = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
         openMenuItem = new javax.swing.JMenuItem();
-        saveMenuItem = new javax.swing.JMenuItem();
         saveAsMenuItem = new javax.swing.JMenuItem();
+        saveMenuItem = new javax.swing.JMenuItem();
         exitMenuItem = new javax.swing.JMenuItem();
         editMenu = new javax.swing.JMenu();
         cutMenuItem = new javax.swing.JMenuItem();
         copyMenuItem = new javax.swing.JMenuItem();
         pasteMenuItem = new javax.swing.JMenuItem();
         deleteMenuItem = new javax.swing.JMenuItem();
-        helpMenu = new javax.swing.JMenu();
-        contentMenuItem = new javax.swing.JMenuItem();
-        aboutMenuItem = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
-        helpMenu1 = new javax.swing.JMenu();
-        contentMenuItem1 = new javax.swing.JMenuItem();
-        aboutMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
+
+        jMenu1.setText("jMenu1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -114,7 +113,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         fileMenu.setMnemonic('f');
         fileMenu.setText("Usuario");
+        fileMenu.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
 
+        openMenuItem.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        openMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/usu.png"))); // NOI18N
         openMenuItem.setMnemonic('o');
         openMenuItem.setText("Crear Usuario");
         openMenuItem.addActionListener(new java.awt.event.ActionListener() {
@@ -124,14 +126,20 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
         fileMenu.add(openMenuItem);
 
-        saveMenuItem.setMnemonic('s');
-        saveMenuItem.setText("Eliminar Usuario");
-        fileMenu.add(saveMenuItem);
-
+        saveAsMenuItem.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        saveAsMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/bus.png"))); // NOI18N
         saveAsMenuItem.setMnemonic('a');
         saveAsMenuItem.setText("Buscar Usuario");
         fileMenu.add(saveAsMenuItem);
 
+        saveMenuItem.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        saveMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/eli.png"))); // NOI18N
+        saveMenuItem.setMnemonic('s');
+        saveMenuItem.setText("Eliminar Usuario");
+        fileMenu.add(saveMenuItem);
+
+        exitMenuItem.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        exitMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/actu.png"))); // NOI18N
         exitMenuItem.setMnemonic('x');
         exitMenuItem.setText("Modificar Usuario");
         exitMenuItem.addActionListener(new java.awt.event.ActionListener() {
@@ -145,62 +153,58 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         editMenu.setMnemonic('e');
         editMenu.setText("Rutas");
+        editMenu.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
 
+        cutMenuItem.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        cutMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/ruta.png"))); // NOI18N
         cutMenuItem.setMnemonic('t');
         cutMenuItem.setText("Crear Ruta");
         editMenu.add(cutMenuItem);
 
+        copyMenuItem.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        copyMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/rutab.png"))); // NOI18N
         copyMenuItem.setMnemonic('y');
         copyMenuItem.setText("Buscar Ruta");
         editMenu.add(copyMenuItem);
 
+        pasteMenuItem.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        pasteMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/liminarrutas.png"))); // NOI18N
         pasteMenuItem.setMnemonic('p');
         pasteMenuItem.setText("Eliminar Ruta");
         editMenu.add(pasteMenuItem);
 
+        deleteMenuItem.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        deleteMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/modi.png"))); // NOI18N
         deleteMenuItem.setMnemonic('d');
-        deleteMenuItem.setText("Borrar Ruta");
+        deleteMenuItem.setText("Modificar Ruta");
         editMenu.add(deleteMenuItem);
 
         menuBar.add(editMenu);
 
-        helpMenu.setMnemonic('h');
-        helpMenu.setText("Vehiculos");
+        jMenu2.setText("Viaje");
+        jMenu2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
 
-        contentMenuItem.setMnemonic('c');
-        contentMenuItem.setText("Crear Vehiculo");
-        helpMenu.add(contentMenuItem);
+        jMenuItem1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/viaje.png"))); // NOI18N
+        jMenuItem1.setText("Crear Viaje");
+        jMenu2.add(jMenuItem1);
 
-        aboutMenuItem.setMnemonic('a');
-        aboutMenuItem.setText("Buscar Vehiculo");
-        helpMenu.add(aboutMenuItem);
+        jMenuItem2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/bluk.png"))); // NOI18N
+        jMenuItem2.setText("Buscar Viaje");
+        jMenu2.add(jMenuItem2);
 
-        jMenuItem1.setText("Modificar Vehiculo");
-        helpMenu.add(jMenuItem1);
+        jMenuItem3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/aaaa.png"))); // NOI18N
+        jMenuItem3.setText("Modificar Viaje");
+        jMenu2.add(jMenuItem3);
 
-        jMenuItem2.setText("Eliminar Vehiculo");
-        helpMenu.add(jMenuItem2);
+        jMenuItem4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/babab.png"))); // NOI18N
+        jMenuItem4.setText("Eliminar Viaje");
+        jMenu2.add(jMenuItem4);
 
-        menuBar.add(helpMenu);
-
-        helpMenu1.setMnemonic('h');
-        helpMenu1.setText("Conductores");
-
-        contentMenuItem1.setMnemonic('c');
-        contentMenuItem1.setText("Crear Conductor");
-        helpMenu1.add(contentMenuItem1);
-
-        aboutMenuItem1.setMnemonic('a');
-        aboutMenuItem1.setText("Buscar Conductor");
-        helpMenu1.add(aboutMenuItem1);
-
-        jMenuItem3.setText("Eliminar Conductor");
-        helpMenu1.add(jMenuItem3);
-
-        jMenuItem4.setText("Modificar Conductor");
-        helpMenu1.add(jMenuItem4);
-
-        menuBar.add(helpMenu1);
+        menuBar.add(jMenu2);
 
         setJMenuBar(menuBar);
 
@@ -208,11 +212,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 718, Short.MAX_VALUE)
+            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 745, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 547, Short.MAX_VALUE)
+            .addComponent(desktopPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 545, Short.MAX_VALUE)
         );
 
         pack();
@@ -282,10 +286,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuItem aboutMenuItem;
-    private javax.swing.JMenuItem aboutMenuItem1;
-    private javax.swing.JMenuItem contentMenuItem;
-    private javax.swing.JMenuItem contentMenuItem1;
     private javax.swing.JMenuItem copyMenuItem;
     private javax.swing.JMenuItem cutMenuItem;
     private javax.swing.JMenuItem deleteMenuItem;
@@ -293,11 +293,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu editMenu;
     private javax.swing.JMenuItem exitMenuItem;
     private javax.swing.JMenu fileMenu;
-    private javax.swing.JMenu helpMenu;
-    private javax.swing.JMenu helpMenu1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;

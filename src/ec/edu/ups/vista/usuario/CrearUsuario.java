@@ -175,6 +175,7 @@ public class CrearUsuario extends javax.swing.JInternalFrame {
         Usuario usuario = new Usuario();
         usuario.setUsuario(txtusuario.getText());
         usuario.setPassword(txtcontraseña.getText());
+        usuario.setCodigo(Integer.parseInt(txtcodigo.getText()));
         usuario_Controlador.create(usuario);
         
         Persona persona = new Persona();

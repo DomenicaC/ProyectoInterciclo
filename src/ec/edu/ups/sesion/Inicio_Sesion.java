@@ -197,7 +197,8 @@ public class Inicio_Sesion extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Usuario / Contraseña Incorrecta");
         }
     }//GEN-LAST:event_botoningresarMouseClicked
-
+ 
+    
     private void botonsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonsalirActionPerformed
         // TODO add your handling code here:
         dispose();

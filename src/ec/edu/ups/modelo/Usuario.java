@@ -13,7 +13,7 @@ import java.util.Objects;
  */
 public class Usuario extends Persona {
 
-   //private int codigo;
+    private int codigo;
     private String usuario;
     private String password;
     private Byte foto;
@@ -24,11 +24,20 @@ public class Usuario extends Persona {
     public Usuario() {
     }
 
-    public Usuario(String usuario, String password, Byte foto, Preferencia pre) {
+    public Usuario(int codigo, String usuario, String password, Byte foto, Preferencia pre) {
+        this.codigo = codigo;
         this.usuario = usuario;
         this.password = password;
         this.foto = foto;
         this.pre = pre;
+    }
+
+    public int getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
     }
 
     public String getUsuario() {
@@ -43,8 +52,8 @@ public class Usuario extends Persona {
         return password;
     }
 
-    public void setPassword(String contraseña) {
-        this.password = contraseña;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public Byte getFoto() {
@@ -65,6 +74,9 @@ public class Usuario extends Persona {
 
     @Override
     public String toString() {
-        return "Usuario{" + "usuario=" + usuario + ", Password=" + password + ", foto=" + foto + ", pre=" + pre + '}';
+        return "Usuario{" + "codigo=" + codigo + ", usuario=" + usuario + ", password=" + password + ", foto=" + foto + ", pre=" + pre + '}';
     }
+
+    
+    
 }
