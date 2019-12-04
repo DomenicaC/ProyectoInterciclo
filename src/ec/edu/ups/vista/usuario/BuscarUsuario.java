@@ -9,8 +9,11 @@ import ec.edu.ups.controladores.Persona_Controlador;
 import ec.edu.ups.controladores.Usuario_Controlador;
 import ec.edu.ups.modelo.Persona;
 import ec.edu.ups.modelo.Usuario;
+import ec.edu.ups.vista.MenuPrincipal;
+import static ec.edu.ups.vista.usuario.CrearUsuario.x;
 import java.sql.SQLException;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
@@ -19,12 +22,27 @@ import javax.swing.JOptionPane;
  * @author Domenica Cañizares
  */
 public class BuscarUsuario extends javax.swing.JInternalFrame {
-
+private Usuario_Controlador usuario_Controlador;
+    private Persona_Controlador persona_Controlador;
+    public static String x;
+    private SimpleDateFormat formato;
+    String url = "jdbc:postgresql://localhost:5432/Proyecto_Interciclo";
+    String user = "postgres";
+    String password = "QLJPikrq7833";
     /**
      * Creates new form BuscarUsuario
      */
-    public BuscarUsuario() {
+    public BuscarUsuario(String url, String user, String password) {
         initComponents();
+        this.persona_Controlador = new Persona_Controlador(url, user, password);
+        this.usuario_Controlador = new Usuario_Controlador(url, user, password);
+        formato = new SimpleDateFormat("yyyy-MM-dd");
+        x = "x";
+        
+        int a = MenuPrincipal.desktopPane.getWidth() - this.getWidth();
+        int b = MenuPrincipal.desktopPane.getHeight() - this.getHeight();
+        setLocation(a / 2, b / 2);
+        setVisible(true); 
     }
 
     /**
