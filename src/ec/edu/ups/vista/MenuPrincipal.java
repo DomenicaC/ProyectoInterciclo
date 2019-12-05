@@ -6,6 +6,9 @@
 package ec.edu.ups.vista;
 
 import ec.edu.ups.sesion.Inicio_Sesion;
+import ec.edu.ups.vista.Factura.BuscarFac;
+import ec.edu.ups.vista.Factura.CrearFactura;
+import ec.edu.ups.vista.Factura.EliminarFac;
 import ec.edu.ups.vista.usuario.BuscarUsuario;
 import ec.edu.ups.vista.usuario.CrearUsuario;
 import javax.swing.JOptionPane;
@@ -20,9 +23,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
     String url = "jdbc:postgresql://localhost:5432/Proyecto_Interciclo";
     String user = "postgres";
     String password = "QLJPikrq7833";
-    
+
     private CrearUsuario crearUsuario;
     private BuscarUsuario buscarUsuario;
+
+    private CrearFactura crearFac;
+    private BuscarFac buscarFac;
+    private EliminarFac eliFac;
+
     /**
      * Creates new form NewMDIApplication
      */
@@ -31,7 +39,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         desktopPane.setBorder(new Fondo());
         this.setExtendedState(MenuPrincipal.MAXIMIZED_BOTH);
         setLocationRelativeTo(null);
-         this.setLocationRelativeTo(null);
+        this.setLocationRelativeTo(null);
         setIconImage(new ImageIcon(("src/ec/edu/ups/imagenes/final.png")).getImage());
         this.setTitle("***** BLABLABLA.ES *****");
 
@@ -70,6 +78,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
+        jMenu3 = new javax.swing.JMenu();
+        jMenuItem5 = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
+        jMenuItem8 = new javax.swing.JMenuItem();
 
         jMenu1.setText("jMenu1");
 
@@ -102,14 +114,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/uli.png"))); // NOI18N
-
-        desktopPane.setLayer(jTextField2, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        desktopPane.setLayer(jTextField3, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        desktopPane.setLayer(jTextField5, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        desktopPane.setLayer(jButton3, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        desktopPane.setLayer(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        desktopPane.setLayer(jLabel3, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        desktopPane.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout desktopPaneLayout = new javax.swing.GroupLayout(desktopPane);
         desktopPane.setLayout(desktopPaneLayout);
@@ -153,6 +157,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
                         .addGap(20, 20, 20)
                         .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
+        desktopPane.setLayer(jTextField2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        desktopPane.setLayer(jTextField3, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        desktopPane.setLayer(jTextField5, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        desktopPane.setLayer(jButton3, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        desktopPane.setLayer(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        desktopPane.setLayer(jLabel3, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        desktopPane.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         getContentPane().add(desktopPane, java.awt.BorderLayout.CENTER);
 
@@ -250,6 +261,41 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         menuBar.add(jMenu2);
 
+        jMenu3.setText("Factura");
+        jMenu3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+
+        jMenuItem5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/viaje.png"))); // NOI18N
+        jMenuItem5.setText("Crear Factura");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem5);
+
+        jMenuItem6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jMenuItem6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/bluk.png"))); // NOI18N
+        jMenuItem6.setText("Buscar Factura");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem6);
+
+        jMenuItem8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jMenuItem8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/babab.png"))); // NOI18N
+        jMenuItem8.setText("Eliminar Factura");
+        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem8ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem8);
+
+        menuBar.add(jMenu3);
+
         setJMenuBar(menuBar);
 
         pack();
@@ -260,11 +306,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        
+
         Inicio_Sesion in = new Inicio_Sesion();
         in.setVisible(true);
         this.setVisible(false);
-        
+
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void saveAsMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveAsMenuItemActionPerformed
@@ -287,6 +333,60 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private void cutMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cutMenuItemActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cutMenuItemActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+
+        String x = CrearFactura.x;
+        try {
+            if (x == null) {
+                if (crearFac == null || crearFac.isVisible() == false) {
+                    crearFac = new CrearFactura(url, user, password);
+                    desktopPane.add(buscarUsuario);
+                }
+            } else {
+                JOptionPane.showMessageDialog(this, "La ventana ya esta abierta");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+
+        String x = BuscarFac.x;
+        try {
+            if (x == null) {
+                if (buscarFac == null || buscarFac.isVisible() == false) {
+                    buscarFac = new BuscarFac(url, user, password);
+                    desktopPane.add(buscarFac);
+                }
+            } else {
+                JOptionPane.showMessageDialog(this, "La ventana ya esta abierta");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
+
+    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+
+        String x = EliminarFac.x;
+        try {
+            if (x == null) {
+                if (eliFac == null || eliFac.isVisible() == false) {
+                    eliFac = new EliminarFac(url, user, password);
+                    desktopPane.add(eliFac);
+                }
+            } else {
+                JOptionPane.showMessageDialog(this, "La ventana ya esta abierta");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }//GEN-LAST:event_jMenuItem8ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -338,10 +438,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField5;

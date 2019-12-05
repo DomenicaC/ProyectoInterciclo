@@ -23,6 +23,7 @@ import ec.edu.ups.modelo.Vehiculo;
 import ec.edu.ups.modelo.Viaje;
 import ec.edu.ups.vista.MenuPrincipal;
 import java.awt.event.KeyEvent;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -55,14 +56,20 @@ public class CrearFactura extends javax.swing.JInternalFrame {
     private Viaje via;
 
     private Date fecha;
+    
+    private SimpleDateFormat formato;
 
     private int contador;
     private double totalCP, subtotal, iva, total;
     private DefaultTableModel tablaF;
 
     public static String x;
+    
+    String url = "jdbc:postgresql://localhost:5432/Proyecto_Interciclo";
+    String user = "postgres";
+    String password = "QLJPikrq7833";
 
-    public CrearFactura(Boleto_Controlador bolCon, FacturaCab_Controlador fCabCon, ModoPago_Controlador modCon, Persona_Controlador perCon, Ruta_Controlador rutCon, Vehiculo_Controlador vehiCon, Viaje_Controlador viaCon) {
+    public CrearFactura(String url, String user, String password) {
         initComponents();
         this.bolCon = bolCon;
         this.fCab = fCab;
@@ -71,6 +78,8 @@ public class CrearFactura extends javax.swing.JInternalFrame {
         this.rutCon = rutCon;
         this.vehiCon = vehiCon;
         this.viaCon = viaCon;
+        
+        
 
         this.fCab = new Factura_Cabecera();
 
@@ -89,6 +98,8 @@ public class CrearFactura extends javax.swing.JInternalFrame {
         int b = MenuPrincipal.desktopPane.getHeight() - this.getHeight();
         setLocation(a / 2, b / 2);
         setVisible(true);
+        
+        formato = new SimpleDateFormat("yyyy-MM-dd");
 
         txtTarjeta.setVisible(false);
         btnVal.setVisible(false);
