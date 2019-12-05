@@ -62,13 +62,13 @@ String url = "jdbc:postgresql://localhost:5432/Proyecto_Interciclo";
         jLabel2.setText("Codigo:");
 
         jLabel3.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
-        jLabel3.setText("Calle Principal:");
+        jLabel3.setText("Ciudad Salida");
 
         jLabel4.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
-        jLabel4.setText("Calle Secundaria:");
+        jLabel4.setText("Ciudad llegada");
 
         jLabel5.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
-        jLabel5.setText("Número:");
+        jLabel5.setText("Costo:");
 
         jLabel6.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
         jLabel6.setText("Descripción:");
@@ -98,7 +98,7 @@ String url = "jdbc:postgresql://localhost:5432/Proyecto_Interciclo";
                 .addComponent(btnVolver)
                 .addGap(97, 97, 97))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(63, Short.MAX_VALUE)
+                .addContainerGap(79, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

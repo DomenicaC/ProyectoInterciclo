@@ -21,6 +21,8 @@ public class Usuario extends Persona {
     
     //clase
     private Preferencia pre;
+    private Mensaje mens;
+    private Notificacion not;
 
     public Usuario() {
     }

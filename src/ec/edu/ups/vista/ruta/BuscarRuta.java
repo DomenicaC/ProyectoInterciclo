@@ -38,7 +38,6 @@ public class BuscarRuta extends javax.swing.JInternalFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         btnCrear = new javax.swing.JButton();
-        btnVolver = new javax.swing.JButton();
         txtCod = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -48,9 +47,11 @@ public class BuscarRuta extends javax.swing.JInternalFrame {
         setMaximizable(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        txtCalPrin.setEditable(false);
         txtCalPrin.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
         getContentPane().add(txtCalPrin, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 97, 136, -1));
 
+        txtCalSec.setEditable(false);
         txtCalSec.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
         getContentPane().add(txtCalSec, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 139, 136, -1));
 
@@ -71,11 +72,11 @@ public class BuscarRuta extends javax.swing.JInternalFrame {
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 54, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
-        jLabel3.setText("Calle Principal:");
+        jLabel3.setText("Ciudad Salida");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 100, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
-        jLabel4.setText("Calle Secundaria:");
+        jLabel4.setText("Ciudad Llegada");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 142, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
@@ -87,12 +88,8 @@ public class BuscarRuta extends javax.swing.JInternalFrame {
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 234, -1, -1));
 
         btnCrear.setText("Buscar");
-        getContentPane().add(btnCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(354, 118, -1, -1));
+        getContentPane().add(btnCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 50, -1, -1));
 
-        btnVolver.setText("Volver");
-        getContentPane().add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(354, 190, -1, -1));
-
-        txtCod.setEditable(false);
         txtCod.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
         getContentPane().add(txtCod, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 51, 136, -1));
 
@@ -108,7 +105,6 @@ public class BuscarRuta extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCrear;
-    private javax.swing.JButton btnVolver;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

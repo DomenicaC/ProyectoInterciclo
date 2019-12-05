@@ -39,7 +39,7 @@ public class ListarRuta extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "Código", "Calle Principal", "Calle Secundaria", "Número", "Descripción"
+                "Código", "Ciudad Salida", "Ciudad llegada", "Costo", "Descripción"
             }
         ));
         jScrollPane1.setViewportView(jTable1);

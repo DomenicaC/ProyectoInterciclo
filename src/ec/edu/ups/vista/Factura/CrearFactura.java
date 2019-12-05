@@ -324,13 +324,14 @@ public class CrearFactura extends javax.swing.JInternalFrame {
 
         lblNomV.setBackground(new java.awt.Color(255, 255, 255));
         lblNomV.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
-        lblNomV.setText("Calle Secundaria");
+        lblNomV.setText("Ciudad Llegada");
 
+        txtNomV.setEditable(false);
         txtNomV.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
 
         lblApeV.setBackground(new java.awt.Color(255, 255, 255));
         lblApeV.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
-        lblApeV.setText("Número");
+        lblApeV.setText("Costo");
 
         txtApeV.setEditable(false);
         txtApeV.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
@@ -340,9 +341,7 @@ public class CrearFactura extends javax.swing.JInternalFrame {
         lblCedV.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
         lblCedV.setText("Código");
 
-        txtCodR.setEditable(false);
         txtCodR.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
-        txtCodR.setEnabled(false);
 
         btnBuscarVF.setText("Buscar");
         btnBuscarVF.addActionListener(new java.awt.event.ActionListener() {
@@ -353,8 +352,9 @@ public class CrearFactura extends javax.swing.JInternalFrame {
 
         lblCodV.setBackground(new java.awt.Color(255, 255, 255));
         lblCodV.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
-        lblCodV.setText("Calle Principal");
+        lblCodV.setText("Ciudad Salida");
 
+        txtCallPrin.setEditable(false);
         txtCallPrin.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
 
         lblNomV1.setBackground(new java.awt.Color(255, 255, 255));
@@ -370,7 +370,7 @@ public class CrearFactura extends javax.swing.JInternalFrame {
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(60, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -382,16 +382,17 @@ public class CrearFactura extends javax.swing.JInternalFrame {
                                 .addComponent(lblCodV)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txtCallPrin, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                                .addComponent(btnBuscarVF)
-                                .addGap(18, 18, 18)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGap(93, 93, 93)
                                 .addComponent(lblNomV)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(txtNomV, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(28, 28, 28))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnBuscarVF)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(lblApeV)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txtApeV, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -409,7 +410,6 @@ public class CrearFactura extends javax.swing.JInternalFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCodV)
                     .addComponent(txtCallPrin, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBuscarVF)
                     .addComponent(lblNomV)
                     .addComponent(txtNomV, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -417,7 +417,8 @@ public class CrearFactura extends javax.swing.JInternalFrame {
                     .addComponent(lblApeV)
                     .addComponent(txtApeV, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblCedV)
-                    .addComponent(txtCodR, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtCodR, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBuscarVF))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtNomV1, javax.swing.GroupLayout.DEFAULT_SIZE, 56, Short.MAX_VALUE)
@@ -549,7 +550,6 @@ public class CrearFactura extends javax.swing.JInternalFrame {
                         .addComponent(lblIva)
                         .addComponent(btnCrear)
                         .addComponent(btnCancelarF)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGap(6, 6, 6)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblTot)
