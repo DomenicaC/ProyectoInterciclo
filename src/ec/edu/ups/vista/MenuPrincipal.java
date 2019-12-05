@@ -9,6 +9,7 @@ import ec.edu.ups.sesion.Inicio_Sesion;
 import ec.edu.ups.vista.Factura.BuscarFac;
 import ec.edu.ups.vista.Factura.CrearFactura;
 import ec.edu.ups.vista.Factura.EliminarFac;
+import ec.edu.ups.vista.ruta.CrearRuta;
 import ec.edu.ups.vista.usuario.BuscarUsuario;
 import ec.edu.ups.vista.usuario.CrearUsuario;
 import javax.swing.JOptionPane;
@@ -26,6 +27,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private CrearUsuario crearUsuario;
     private BuscarUsuario buscarUsuario;
+    private CrearRuta crearRuta;
 
     private CrearFactura crearFac;
     private BuscarFac buscarFac;
@@ -73,15 +75,15 @@ public class MenuPrincipal extends javax.swing.JFrame {
         copyMenuItem = new javax.swing.JMenuItem();
         pasteMenuItem = new javax.swing.JMenuItem();
         deleteMenuItem = new javax.swing.JMenuItem();
+        jMenu3 = new javax.swing.JMenu();
+        jMenuItem5 = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
+        jMenuItem8 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
-        jMenuItem5 = new javax.swing.JMenuItem();
-        jMenuItem6 = new javax.swing.JMenuItem();
-        jMenuItem8 = new javax.swing.JMenuItem();
 
         jMenu1.setText("jMenu1");
 
@@ -114,6 +116,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/uli.png"))); // NOI18N
+
+        desktopPane.setLayer(jTextField2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        desktopPane.setLayer(jTextField3, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        desktopPane.setLayer(jTextField5, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        desktopPane.setLayer(jButton3, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        desktopPane.setLayer(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        desktopPane.setLayer(jLabel3, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        desktopPane.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout desktopPaneLayout = new javax.swing.GroupLayout(desktopPane);
         desktopPane.setLayout(desktopPaneLayout);
@@ -157,13 +167,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
                         .addGap(20, 20, 20)
                         .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
-        desktopPane.setLayer(jTextField2, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        desktopPane.setLayer(jTextField3, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        desktopPane.setLayer(jTextField5, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        desktopPane.setLayer(jButton3, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        desktopPane.setLayer(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        desktopPane.setLayer(jLabel3, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        desktopPane.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         getContentPane().add(desktopPane, java.awt.BorderLayout.CENTER);
 
@@ -236,31 +239,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         menuBar.add(editMenu);
 
-        jMenu2.setText("Viaje");
-        jMenu2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-
-        jMenuItem1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/viaje.png"))); // NOI18N
-        jMenuItem1.setText("Crear Viaje");
-        jMenu2.add(jMenuItem1);
-
-        jMenuItem2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/bluk.png"))); // NOI18N
-        jMenuItem2.setText("Buscar Viaje");
-        jMenu2.add(jMenuItem2);
-
-        jMenuItem3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/aaaa.png"))); // NOI18N
-        jMenuItem3.setText("Modificar Viaje");
-        jMenu2.add(jMenuItem3);
-
-        jMenuItem4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/babab.png"))); // NOI18N
-        jMenuItem4.setText("Eliminar Viaje");
-        jMenu2.add(jMenuItem4);
-
-        menuBar.add(jMenu2);
-
         jMenu3.setText("Factura");
         jMenu3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
 
@@ -295,6 +273,36 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenu3.add(jMenuItem8);
 
         menuBar.add(jMenu3);
+
+        jMenu2.setText("Viaje");
+        jMenu2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+
+        jMenuItem1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/viaje.png"))); // NOI18N
+        jMenuItem1.setText("Crear Viaje");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem1);
+
+        jMenuItem2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/bluk.png"))); // NOI18N
+        jMenuItem2.setText("Buscar Viaje");
+        jMenu2.add(jMenuItem2);
+
+        jMenuItem3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/aaaa.png"))); // NOI18N
+        jMenuItem3.setText("Modificar Viaje");
+        jMenu2.add(jMenuItem3);
+
+        jMenuItem4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/babab.png"))); // NOI18N
+        jMenuItem4.setText("Eliminar Viaje");
+        jMenu2.add(jMenuItem4);
+
+        menuBar.add(jMenu2);
 
         setJMenuBar(menuBar);
 
@@ -332,6 +340,19 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void cutMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cutMenuItemActionPerformed
         // TODO add your handling code here:
+        String x = CrearRuta.x;
+        try {
+            if (x == null) {
+                if (crearRuta == null || crearRuta.isVisible() == false) {
+                    crearRuta = new CrearRuta(url, user, password);
+                    desktopPane.add(crearRuta);
+                }
+            } else {
+                JOptionPane.showMessageDialog(this, "La ventana ya esta abierta");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }//GEN-LAST:event_cutMenuItemActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
@@ -341,7 +362,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
             if (x == null) {
                 if (crearFac == null || crearFac.isVisible() == false) {
                     crearFac = new CrearFactura(url, user, password);
-                    desktopPane.add(buscarUsuario);
+                    desktopPane.add(crearFac);
                 }
             } else {
                 JOptionPane.showMessageDialog(this, "La ventana ya esta abierta");
@@ -387,6 +408,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_jMenuItem8ActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, "Version BETA contrate la versión finalizada");
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**
      * @param args the command line arguments

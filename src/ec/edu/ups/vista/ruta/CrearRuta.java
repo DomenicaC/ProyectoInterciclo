@@ -5,17 +5,27 @@
  */
 package ec.edu.ups.vista.ruta;
 
+import ec.edu.ups.vista.MenuPrincipal;
+
 /**
  *
  * @author Domenica Cañizares
  */
 public class CrearRuta extends javax.swing.JInternalFrame {
-
+public static String x;
+String url = "jdbc:postgresql://localhost:5432/Proyecto_Interciclo";
+    String user = "postgres";
+    String password = "QLJPikrq7833";
     /**
      * Creates new form CrearRuta
      */
-    public CrearRuta() {
+    public CrearRuta(String url, String user, String password) {
         initComponents();
+        x = "x";
+        int a = MenuPrincipal.desktopPane.getWidth() - this.getWidth();
+        int b = MenuPrincipal.desktopPane.getHeight() - this.getHeight();
+        setLocation(a / 2, b / 2);
+        setVisible(true); 
     }
 
     /**

@@ -8,6 +8,7 @@ package ec.edu.ups.sesion;
 import ec.edu.ups.baseDatos.BaseDatos;
 import ec.edu.ups.controladores.Usuario_Controlador;
 import ec.edu.ups.modelo.Usuario;
+import ec.edu.ups.vista.MenuAdmin;
 import ec.edu.ups.vista.MenuPrincipal;
 import static ec.edu.ups.vista.MenuPrincipal.desktopPane;
 import ec.edu.ups.vista.usuario.CrearUsuario;
@@ -16,20 +17,20 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
 
 /**
  *
  * @author Domenica Cañizares
  */
 public class Inicio_Sesion extends javax.swing.JFrame {
- 
+
     BaseDatos baseDatos;
     String url = "jdbc:postgresql://localhost:5432/Proyecto_Interciclo";
     String user = "postgres";
     String password = "QLJPikrq7833";
     private Registro1 registro1;
- 
-    
+
     /**
      * Creates new form Inicio_Sesion
      */
@@ -64,6 +65,7 @@ public class Inicio_Sesion extends javax.swing.JFrame {
         botonsalir = new javax.swing.JButton();
         texto = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        btnRegistrar1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -126,14 +128,14 @@ public class Inicio_Sesion extends javax.swing.JFrame {
         nombre1.setBounds(100, 520, 100, 24);
 
         btnRegistrar.setFont(new java.awt.Font("Elephant", 2, 18)); // NOI18N
-        btnRegistrar.setText("Registrarse");
+        btnRegistrar.setText("Admin");
         btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegistrarActionPerformed(evt);
             }
         });
         panel.add(btnRegistrar);
-        btnRegistrar.setBounds(140, 440, 138, 40);
+        btnRegistrar.setBounds(0, 0, 110, 20);
 
         botonsalir.setFont(new java.awt.Font("Elephant", 2, 18)); // NOI18N
         botonsalir.setText("Salir");
@@ -148,7 +150,7 @@ public class Inicio_Sesion extends javax.swing.JFrame {
         texto.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
         texto.setText("Si no posee una cuenta registrese aqui:");
         panel.add(texto);
-        texto.setBounds(40, 370, 341, 22);
+        texto.setBounds(30, 380, 341, 22);
 
         jLabel1.setText("..");
         jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -159,6 +161,16 @@ public class Inicio_Sesion extends javax.swing.JFrame {
         panel.add(jLabel1);
         jLabel1.setBounds(310, 390, 10, 16);
 
+        btnRegistrar1.setFont(new java.awt.Font("Elephant", 2, 18)); // NOI18N
+        btnRegistrar1.setText("Registrarse");
+        btnRegistrar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrar1ActionPerformed(evt);
+            }
+        });
+        panel.add(btnRegistrar1);
+        btnRegistrar1.setBounds(140, 420, 138, 40);
+
         getContentPane().add(panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 440, 560));
 
         pack();
@@ -167,58 +179,45 @@ public class Inicio_Sesion extends javax.swing.JFrame {
     private void botoningresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botoningresarActionPerformed
         // TODO add your handling code here:
         Usuario_Controlador uc = new Usuario_Controlador(url, user, password);
-        Usuario p = new Usuario();       
+        Usuario p = new Usuario();
         try {
-            p = uc.BuscarUsuario(txtusuario.getText(),txtcontraseña.getText());    
-            if(p.getPassword()!=null && p.getUsuario() !=null){
+            p = uc.BuscarUsuario(txtusuario.getText(), txtcontraseña.getText());
+            if (p.getPassword() != null && p.getUsuario() != null) {
                 MenuPrincipal si = new MenuPrincipal();
-                si.setVisible(true);                
-            }else{
-           JOptionPane.showMessageDialog(this, "No existe la persona", "Buscar Persona", JOptionPane.OK_OPTION);            
-        }
+                si.setVisible(true);
+                this.setVisible(false);
+            } else {
+                JOptionPane.showMessageDialog(this, "No existe la persona", "Buscar Persona", JOptionPane.OK_OPTION);
+            }
         } catch (SQLException ex) {
             Logger.getLogger(Inicio_Sesion.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        
-        
+
+        //String usuario = JOptionPane.showInputDialog("Ingrese el usuario");
+        //String password = JOptionPane.showInputDialog("Ingrese su contraseña");       
+
     }//GEN-LAST:event_botoningresarActionPerformed
 
     private void botoningresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botoningresarMouseClicked
 
-   
+
     }//GEN-LAST:event_botoningresarMouseClicked
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
+      
+
+        String usuario = JOptionPane.showInputDialog("Ingrese el usuario");
+        String Pass = new String(JOptionPane.showInputDialog("Ingrese la contraseña"));
        
-        String x = Registro1.x;
-        try {
-            if (x == null) {
-                if (registro1 == null || registro1.isVisible() == false) {
-                    registro1 = new Registro1(url, user, password);
-                    panel.add(registro1);
-                    txtcontraseña.setVisible(false);
-                    txtusuario.setVisible(false);
-                    labelcontraseña.setVisible(false);
-                    labelusuario.setVisible(false);
-                    imagen.setVisible(false);
-                    texto.setVisible(false);
-                    titulo2.setVisible(false);
-                    nombre1.setVisible(false);
-                    nombre2.setVisible(false);
-                    botoningresar.setVisible(false);
-                    botonsalir.setVisible(false);
-                    btnRegistrar.setVisible(false);
-                    
-                    
-                }
-            } else {
-                JOptionPane.showMessageDialog(this, "La ventana ya esta abierta");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
+        if (usuario.equals("admin") && Pass.equals("admin")) {
+            MenuAdmin si = new MenuAdmin();
+            si.setVisible(true);
+            this.setVisible(false);
+        }else{
+            JOptionPane.showMessageDialog(this, "Ingrese su datos correctamente");
         }
         
+
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void botonsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonsalirActionPerformed
@@ -227,24 +226,27 @@ public class Inicio_Sesion extends javax.swing.JFrame {
     }//GEN-LAST:event_botonsalirActionPerformed
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
-        
+
         txtcontraseña.setVisible(true);
-                    txtusuario.setVisible(true);
-                    labelcontraseña.setVisible(true);
-                    labelusuario.setVisible(true);
-                    imagen.setVisible(true);
-                    texto.setVisible(true);
-                    titulo2.setVisible(true);
-                    nombre1.setVisible(true);
-                    nombre2.setVisible(true);
-                    botoningresar.setVisible(true);
-                    botonsalir.setVisible(true);
-                    btnRegistrar.setVisible(true);
-                    
-        
+        txtusuario.setVisible(true);
+        labelcontraseña.setVisible(true);
+        labelusuario.setVisible(true);
+        imagen.setVisible(true);
+        texto.setVisible(true);
+        titulo2.setVisible(true);
+        nombre1.setVisible(true);
+        nombre2.setVisible(true);
+        botoningresar.setVisible(true);
+        botonsalir.setVisible(true);
+        btnRegistrar.setVisible(true);
+
+
     }//GEN-LAST:event_jLabel1MouseClicked
- 
-    
+
+    private void btnRegistrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrar1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRegistrar1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -284,6 +286,7 @@ public class Inicio_Sesion extends javax.swing.JFrame {
     private javax.swing.JButton botoningresar;
     private javax.swing.JButton botonsalir;
     private javax.swing.JButton btnRegistrar;
+    private javax.swing.JButton btnRegistrar1;
     private javax.swing.JLabel imagen;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel1;
