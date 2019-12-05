@@ -6,6 +6,7 @@
 package ec.edu.ups.controladores;
 import ec.edu.ups.modelo.Persona;
 import ec.edu.ups.baseDatos.BaseDatos;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
@@ -62,6 +63,37 @@ public class Persona_Controlador {
         }
     }
     
-    
+    public Persona BuscarPer(String cedula) {
+        
+        Persona per = new Persona();
+        
+        try {
+            
+            String sql = "SELECT * FROM \"Viaje\"WHERE\"cedula\"= " + cedula + ";";
+            System.out.println("BASE" + sql);
+            
+            MiBaseDatos.conectar();
+            Statement sta = MiBaseDatos.getConexionBD().createStatement();
+            ResultSet res = sta.executeQuery(sql);
+            
+            while (res.next()) {
+                
+                per.setCedula(cedula);
+                per.setCodigo(res.getInt("codigo"));
+                per.setApellido(res.getString("apellido"));
+                per.setNombre(res.getString("nombre"));
+                per.setFechaNac(res.getDate("fecha_nac"));
+                
+            }
+            res.close();
+            sta.close();
+            MiBaseDatos.desconectar();
+            
+        } catch (SQLException error) {
+            error.printStackTrace();
+        }
+        return per;
+        
+    }
     
 }

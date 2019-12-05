@@ -5,7 +5,26 @@
  */
 package ec.edu.ups.vista.Factura;
 
+import ec.edu.ups.controladores.Boleto_Controlador;
+import ec.edu.ups.controladores.FacturaCab_Controlador;
+import ec.edu.ups.controladores.ModoPago_Controlador;
+import ec.edu.ups.controladores.Persona_Controlador;
+import ec.edu.ups.controladores.Ruta_Controlador;
 import ec.edu.ups.controladores.Usuario_Controlador;
+import ec.edu.ups.controladores.Vehiculo_Controlador;
+import ec.edu.ups.controladores.Viaje_Controlador;
+import ec.edu.ups.modelo.Boleto;
+import ec.edu.ups.modelo.Factura_Cabecera;
+import ec.edu.ups.modelo.Factura_Detalle;
+import ec.edu.ups.modelo.Modo_Pago;
+import ec.edu.ups.modelo.Persona;
+import ec.edu.ups.modelo.Ruta;
+import ec.edu.ups.modelo.Vehiculo;
+import ec.edu.ups.modelo.Viaje;
+import ec.edu.ups.vista.MenuPrincipal;
+import java.util.Date;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -16,8 +35,60 @@ public class CrearFactura extends javax.swing.JInternalFrame {
     /**
      * Creates new form CrearFactura
      */
-    public CrearFactura() {
+    
+    private Boleto_Controlador bolCon;
+    private FacturaCab_Controlador fCabCon;
+    private ModoPago_Controlador modCon;
+    private Persona_Controlador perCon;
+    private Ruta_Controlador rutCon;
+    private Vehiculo_Controlador vehiCon;
+    private Viaje_Controlador viaCon;
+    
+    private Boleto bol;
+    private Factura_Cabecera fCab;
+    private Factura_Detalle fDet;
+    private Modo_Pago modPa;
+    private Persona per;
+    private Ruta rut;
+    private Vehiculo vehi;
+    private Viaje via;
+    
+    private Date fecha;
+    
+    private int contador;
+    private double totalCP, subtotal, iva, total;
+    private DefaultTableModel tablaF;
+    
+    public static String x;
+    
+    public CrearFactura(Boleto_Controlador bolCon, FacturaCab_Controlador fCabCon, ModoPago_Controlador modCon, Persona_Controlador perCon, Ruta_Controlador rutCon, Vehiculo_Controlador vehiCon, Viaje_Controlador viaCon) {
         initComponents();
+        this.bolCon = bolCon;
+        this.fCab = fCab;
+        this.modCon = modCon;
+        this.perCon = perCon;
+        this.rutCon = rutCon;
+        this.vehiCon = vehiCon;
+        this.viaCon = viaCon;
+        
+        this.fCab = new Factura_Cabecera();
+        
+        totalCP = 0;
+        subtotal = 0;
+        iva = 0;
+        total = 0;
+        tablaF = null;
+        bol = null;
+        contador = 0;
+        
+        //centrar pantalla
+        x = "x";
+        
+        int a = MenuPrincipal.desktopPane.getWidth() - this.getWidth();
+        int b = MenuPrincipal.desktopPane.getHeight() - this.getHeight();
+        setLocation(a / 2, b / 2);
+        setVisible(true); 
+        
     }
 
     /**
@@ -42,12 +113,8 @@ public class CrearFactura extends javax.swing.JInternalFrame {
         txtCodC = new javax.swing.JTextField();
         lblNomC = new javax.swing.JLabel();
         txtNomC = new javax.swing.JTextField();
-        lblTelC = new javax.swing.JLabel();
-        txtTelC = new javax.swing.JTextField();
         txtApeC = new javax.swing.JTextField();
         lblApeC = new javax.swing.JLabel();
-        lblDirC = new javax.swing.JLabel();
-        txtDirC = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblServF = new javax.swing.JTable();
         txtIva = new javax.swing.JTextField();
@@ -72,7 +139,7 @@ public class CrearFactura extends javax.swing.JInternalFrame {
         txtNomV1 = new javax.swing.JTextField();
         lblCodV1 = new javax.swing.JLabel();
         btnBuscarVF1 = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBox1 = new javax.swing.JComboBox<String>();
         jTextField1 = new javax.swing.JTextField();
 
         setClosable(true);
@@ -86,19 +153,15 @@ public class CrearFactura extends javax.swing.JInternalFrame {
         lblRuc.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
         lblRuc.setText("RUC Factura");
 
-        txtRuc.setEditable(false);
         txtRuc.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
-        txtRuc.setEnabled(false);
 
         lblFecha.setBackground(new java.awt.Color(255, 255, 255));
         lblFecha.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
         lblFecha.setText("Fecha");
 
-        txtFecha.setEditable(false);
         txtFecha.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
-        txtFecha.setEnabled(false);
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Usuario"));
 
         lblCedC.setBackground(new java.awt.Color(255, 255, 255));
         lblCedC.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
@@ -129,14 +192,6 @@ public class CrearFactura extends javax.swing.JInternalFrame {
         txtNomC.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
         txtNomC.setEnabled(false);
 
-        lblTelC.setBackground(new java.awt.Color(255, 255, 255));
-        lblTelC.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
-        lblTelC.setText("Telefono Cliente");
-
-        txtTelC.setEditable(false);
-        txtTelC.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
-        txtTelC.setEnabled(false);
-
         txtApeC.setEditable(false);
         txtApeC.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
         txtApeC.setEnabled(false);
@@ -145,14 +200,6 @@ public class CrearFactura extends javax.swing.JInternalFrame {
         lblApeC.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
         lblApeC.setText("Apellido Cliente");
 
-        lblDirC.setBackground(new java.awt.Color(255, 255, 255));
-        lblDirC.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
-        lblDirC.setText("Direccion Cliente");
-
-        txtDirC.setEditable(false);
-        txtDirC.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
-        txtDirC.setEnabled(false);
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -160,10 +207,6 @@ public class CrearFactura extends javax.swing.JInternalFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(lblTelC)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtTelC, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(lblNomC)
                         .addGap(18, 18, 18)
@@ -180,15 +223,10 @@ public class CrearFactura extends javax.swing.JInternalFrame {
                         .addComponent(lblCodC)
                         .addGap(18, 18, 18)
                         .addComponent(txtCodC, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addComponent(lblApeC)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtApeC, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addComponent(lblDirC)
-                            .addGap(18, 18, 18)
-                            .addComponent(txtDirC, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(lblApeC)
+                        .addGap(30, 30, 30)
+                        .addComponent(txtApeC, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(35, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -209,14 +247,6 @@ public class CrearFactura extends javax.swing.JInternalFrame {
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(lblNomC)
                         .addComponent(txtNomC, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lblDirC)
-                        .addComponent(txtDirC, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lblTelC)
-                        .addComponent(txtTelC, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -325,7 +355,7 @@ public class CrearFactura extends javax.swing.JInternalFrame {
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap(38, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -391,7 +421,7 @@ public class CrearFactura extends javax.swing.JInternalFrame {
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Opciones", "Efectivo", "Tarjeta Credito" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Opciones", "Efectivo", "Tarjeta Credito" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -401,7 +431,10 @@ public class CrearFactura extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 5, Short.MAX_VALUE)
+                        .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -441,13 +474,7 @@ public class CrearFactura extends javax.swing.JInternalFrame {
                                                 .addComponent(lblTot)
                                                 .addGap(18, 18, 18)
                                                 .addComponent(txtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                                .addGap(34, 34, 34))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 663, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())))
+                                .addGap(34, 34, 34))))))
             .addGroup(layout.createSequentialGroup()
                 .addGap(56, 56, 56)
                 .addComponent(lblCodV1)
@@ -458,6 +485,10 @@ public class CrearFactura extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addComponent(btnBuscarVF1)
                 .addGap(128, 128, 128))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(13, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 663, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -477,15 +508,15 @@ public class CrearFactura extends javax.swing.JInternalFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCodV1)
                     .addComponent(btnBuscarVF1)
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(1, 1, 1)
@@ -499,31 +530,30 @@ public class CrearFactura extends javax.swing.JInternalFrame {
                         .addComponent(btnCrear)
                         .addComponent(btnCancelarF)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(6, 6, 6)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(lblTot))
+                    .addComponent(lblTot)
                     .addComponent(txtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                .addGap(51, 51, 51))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBuscarCFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarCFActionPerformed
-/*
-        String cedula = txtCedC.getText();
-        cliente = Usuario_Controlador.read1(cedula);
 
-        if (cliente == null) {
+        String cedula = txtCedC.getText();
+        per = perCon.BuscarPer(cedula);
+
+        if (per == null) {
             JOptionPane.showMessageDialog(null, "Cedula no Existe");
         } else {
-            //txtCodC.setText(Integer.toString(cliente.getCodigo()));
-            txtNomC.setText(cliente.getNombre());
-            txtApeC.setText(cliente.getApellido());
-            txtDirC.setText(cliente.getDireccion());
-            txtTelC.setText(cliente.getTelefono());
-        }*/
+            
+            txtCodC.setText(Integer.toString(per.getCodigo()));
+            txtNomC.setText(per.getNombre());
+            txtApeC.setText(per.getApellido());
+            
+        }
     }//GEN-LAST:event_btnBuscarCFActionPerformed
 
     private void tblServFKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tblServFKeyReleased
@@ -684,7 +714,6 @@ public class CrearFactura extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lblCodC;
     private javax.swing.JLabel lblCodV;
     private javax.swing.JLabel lblCodV1;
-    private javax.swing.JLabel lblDirC;
     private javax.swing.JLabel lblFecha;
     private javax.swing.JLabel lblIva;
     private javax.swing.JLabel lblNomC;
@@ -692,7 +721,6 @@ public class CrearFactura extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lblNomV1;
     private javax.swing.JLabel lblRuc;
     private javax.swing.JLabel lblSub;
-    private javax.swing.JLabel lblTelC;
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JLabel lblTot;
     private javax.swing.JTable tblServF;
@@ -702,7 +730,6 @@ public class CrearFactura extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtCedC;
     private javax.swing.JTextField txtCodC;
     private javax.swing.JTextField txtCodR;
-    private javax.swing.JTextField txtDirC;
     private javax.swing.JTextField txtFecha;
     private javax.swing.JTextField txtIva;
     private javax.swing.JTextField txtNomC;
@@ -710,7 +737,6 @@ public class CrearFactura extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtNomV1;
     private javax.swing.JTextField txtRuc;
     private javax.swing.JTextField txtSubtotal;
-    private javax.swing.JTextField txtTelC;
     private javax.swing.JTextField txtTotal;
     // End of variables declaration//GEN-END:variables
 }

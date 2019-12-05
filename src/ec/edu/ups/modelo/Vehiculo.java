@@ -11,10 +11,10 @@ package ec.edu.ups.modelo;
  */
 public class Vehiculo {
     
-    private String codigo;
+    private int codigo;
     private String modelo;
     private String color;
-    private String asiento;
+    private int asiento;
     
     //clases 
     private Conductor cond;
@@ -22,7 +22,7 @@ public class Vehiculo {
     public Vehiculo() {
     }
 
-    public Vehiculo(String codigo, String modelo, String color, String asiento, Conductor cond) {
+    public Vehiculo(int codigo, String modelo, String color, int asiento, Conductor cond) {
         this.codigo = codigo;
         this.modelo = modelo;
         this.color = color;
@@ -30,11 +30,11 @@ public class Vehiculo {
         this.cond = cond;
     }
 
-    public String getCodigo() {
+    public int getCodigo() {
         return codigo;
     }
 
-    public void setCodigo(String codigo) {
+    public void setCodigo(int codigo) {
         this.codigo = codigo;
     }
 
@@ -54,11 +54,11 @@ public class Vehiculo {
         this.color = color;
     }
 
-    public String getAsiento() {
+    public int getAsiento() {
         return asiento;
     }
 
-    public void setAsiento(String asiento) {
+    public void setAsiento(int asiento) {
         this.asiento = asiento;
     }
 
@@ -69,6 +69,7 @@ public class Vehiculo {
     public void setCond(Conductor cond) {
         this.cond = cond;
     }
+    
 
     @Override
     public String toString() {
