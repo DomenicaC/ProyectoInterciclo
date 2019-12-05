@@ -104,7 +104,7 @@ public class Inicio_Sesion extends javax.swing.JFrame {
         panel.add(botoningresar);
         botoningresar.setBounds(70, 320, 112, 40);
         panel.add(txtusuario);
-        txtusuario.setBounds(190, 230, 195, 28);
+        txtusuario.setBounds(190, 240, 195, 28);
         panel.add(txtcontraseña);
         txtcontraseña.setBounds(190, 280, 195, 30);
 
@@ -167,7 +167,8 @@ public class Inicio_Sesion extends javax.swing.JFrame {
     private void botoningresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botoningresarActionPerformed
         // TODO add your handling code here:
         Usuario_Controlador uc = new Usuario_Controlador(url, user, password);
-        Usuario p = new Usuario();        try {
+        Usuario p = new Usuario();       
+        try {
             p = uc.BuscarUsuario(txtusuario.getText(),txtcontraseña.getText());    
             if(p.getPassword()!=null && p.getUsuario() !=null){
                 MenuPrincipal si = new MenuPrincipal();

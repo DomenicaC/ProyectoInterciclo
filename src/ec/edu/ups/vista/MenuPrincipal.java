@@ -57,7 +57,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         menuBar = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
-        openMenuItem = new javax.swing.JMenuItem();
         saveAsMenuItem = new javax.swing.JMenuItem();
         saveMenuItem = new javax.swing.JMenuItem();
         exitMenuItem = new javax.swing.JMenuItem();
@@ -161,17 +160,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
         fileMenu.setText("Usuario");
         fileMenu.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
 
-        openMenuItem.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        openMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/usu.png"))); // NOI18N
-        openMenuItem.setMnemonic('o');
-        openMenuItem.setText("Crear Usuario");
-        openMenuItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                openMenuItemActionPerformed(evt);
-            }
-        });
-        fileMenu.add(openMenuItem);
-
         saveAsMenuItem.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         saveAsMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/bus.png"))); // NOI18N
         saveAsMenuItem.setMnemonic('a');
@@ -210,6 +198,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         cutMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/ruta.png"))); // NOI18N
         cutMenuItem.setMnemonic('t');
         cutMenuItem.setText("Crear Ruta");
+        cutMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cutMenuItemActionPerformed(evt);
+            }
+        });
         editMenu.add(cutMenuItem);
 
         copyMenuItem.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -265,24 +258,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private void exitMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitMenuItemActionPerformed
     }//GEN-LAST:event_exitMenuItemActionPerformed
 
-    private void openMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openMenuItemActionPerformed
-        // TODO add your handling code here:
-        String x = CrearUsuario.x;
-        try {
-            if (x == null) {
-                if (crearUsuario == null || crearUsuario.isVisible() == false) {
-                    crearUsuario = new CrearUsuario(url, user, password);
-                    desktopPane.add(crearUsuario);
-                }
-            } else {
-                JOptionPane.showMessageDialog(this, "La ventana ya esta abierta");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        
-    }//GEN-LAST:event_openMenuItemActionPerformed
-
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         
@@ -308,6 +283,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
             e.printStackTrace();
         }
     }//GEN-LAST:event_saveAsMenuItemActionPerformed
+
+    private void cutMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cutMenuItemActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cutMenuItemActionPerformed
 
     /**
      * @param args the command line arguments
@@ -367,7 +346,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JMenuBar menuBar;
-    private javax.swing.JMenuItem openMenuItem;
     private javax.swing.JMenuItem pasteMenuItem;
     private javax.swing.JMenuItem saveAsMenuItem;
     private javax.swing.JMenuItem saveMenuItem;
