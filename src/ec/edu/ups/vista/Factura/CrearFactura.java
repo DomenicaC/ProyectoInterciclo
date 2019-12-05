@@ -22,7 +22,9 @@ import ec.edu.ups.modelo.Ruta;
 import ec.edu.ups.modelo.Vehiculo;
 import ec.edu.ups.modelo.Viaje;
 import ec.edu.ups.vista.MenuPrincipal;
+import java.awt.event.KeyEvent;
 import java.util.Date;
+import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -35,7 +37,6 @@ public class CrearFactura extends javax.swing.JInternalFrame {
     /**
      * Creates new form CrearFactura
      */
-    
     private Boleto_Controlador bolCon;
     private FacturaCab_Controlador fCabCon;
     private ModoPago_Controlador modCon;
@@ -43,7 +44,7 @@ public class CrearFactura extends javax.swing.JInternalFrame {
     private Ruta_Controlador rutCon;
     private Vehiculo_Controlador vehiCon;
     private Viaje_Controlador viaCon;
-    
+
     private Boleto bol;
     private Factura_Cabecera fCab;
     private Factura_Detalle fDet;
@@ -52,15 +53,15 @@ public class CrearFactura extends javax.swing.JInternalFrame {
     private Ruta rut;
     private Vehiculo vehi;
     private Viaje via;
-    
+
     private Date fecha;
-    
+
     private int contador;
     private double totalCP, subtotal, iva, total;
     private DefaultTableModel tablaF;
-    
+
     public static String x;
-    
+
     public CrearFactura(Boleto_Controlador bolCon, FacturaCab_Controlador fCabCon, ModoPago_Controlador modCon, Persona_Controlador perCon, Ruta_Controlador rutCon, Vehiculo_Controlador vehiCon, Viaje_Controlador viaCon) {
         initComponents();
         this.bolCon = bolCon;
@@ -70,9 +71,9 @@ public class CrearFactura extends javax.swing.JInternalFrame {
         this.rutCon = rutCon;
         this.vehiCon = vehiCon;
         this.viaCon = viaCon;
-        
+
         this.fCab = new Factura_Cabecera();
-        
+
         totalCP = 0;
         subtotal = 0;
         iva = 0;
@@ -80,15 +81,15 @@ public class CrearFactura extends javax.swing.JInternalFrame {
         tablaF = null;
         bol = null;
         contador = 0;
-        
+
         //centrar pantalla
         x = "x";
-        
+
         int a = MenuPrincipal.desktopPane.getWidth() - this.getWidth();
         int b = MenuPrincipal.desktopPane.getHeight() - this.getHeight();
         setLocation(a / 2, b / 2);
-        setVisible(true); 
-        
+        setVisible(true);
+
     }
 
     /**
@@ -548,147 +549,174 @@ public class CrearFactura extends javax.swing.JInternalFrame {
         if (per == null) {
             JOptionPane.showMessageDialog(null, "Cedula no Existe");
         } else {
-            
+
             txtCodC.setText(Integer.toString(per.getCodigo()));
             txtNomC.setText(per.getNombre());
             txtApeC.setText(per.getApellido());
-            
+
         }
     }//GEN-LAST:event_btnBuscarCFActionPerformed
 
     private void tblServFKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tblServFKeyReleased
-       /* int key = evt.getKeyCode();
-        if (key == KeyEvent.VK_ENTER) {
-            int fila = tblServF.getSelectedRow();
-            int columna = tblServF.getSelectedColumn();
-            int codigoServ = 0;
+         int key = evt.getKeyCode();
+         if (key == KeyEvent.VK_ENTER) {
+         int fila = tblServF.getSelectedRow();
+         int columna = tblServF.getSelectedColumn();
+         int codigoBol = 0;
 
-            Object[] datos1 = {"", 0, "", "", ""};
+         Object[] datos1 = {"", 0, "", "", ""};
 
-            if (columna == 0) {
-                codigoServ = Integer.parseInt(tblServF.getValueAt(fila, columna).toString());
-                servicio = controladorServicio.read(codigoServ);
+         if (columna == 0) {
+         codigoBol = Integer.parseInt(tblServF.getValueAt(fila, columna).toString());
+         bol = bolCon.BuscarBoleto(codigoBol);
 
-                int cant = Integer.parseInt(tblServF.getValueAt(fila, 1).toString());
+         int cant = Integer.parseInt(tblServF.getValueAt(fila, 1).toString());
 
-                tablaF = (DefaultTableModel) tblServF.getModel();
-                tablaF.removeRow(fila);
-                totalCP = cant * servicio.getPrecio();
+         tablaF = (DefaultTableModel) tblServF.getModel();
+         tablaF.removeRow(fila);
+         totalCP = cant * bol.getValor();
 
-                Object[] datos = {codigoServ,
-                    cant,
-                    servicio.getNombreservicio(),
-                    servicio.getPrecio(),
-                    totalCP
-                };
+         Object[] datos = {codigoBol,
+         cant,
+         bol.getCodigo(),
+         bol.getValor(),
+         totalCP
+         };
 
-                tablaF.addRow(datos);
-                tablaF.addRow(datos1);
-            } else if (columna == 1) {
+         tablaF.addRow(datos);
+         tablaF.addRow(datos1);
+         } else if (columna == 1) {
 
-                codigoServ = Integer.parseInt(tblServF.getValueAt(fila, columna - 1).toString());
-                int cant = Integer.parseInt(tblServF.getValueAt(fila, columna).toString());
-                tablaF.removeRow(fila);
-                tablaF.removeRow(tblServF.getRowCount() - 1);
+         codigoBol = Integer.parseInt(tblServF.getValueAt(fila, columna - 1).toString());
+         int cant = Integer.parseInt(tblServF.getValueAt(fila, columna).toString());
+         tablaF.removeRow(fila);
+         tablaF.removeRow(tblServF.getRowCount() - 1);
 
-                totalCP = cant * servicio.getPrecio();
+         totalCP = cant * bol.getValor();
 
-                Object[] datos = {codigoServ,
-                    cant,
-                    servicio.getNombreservicio(),
-                    servicio.getPrecio(),
-                    totalCP
-                };
+         Object[] datos = {codigoBol,
+         cant,
+         bol.getCodigo(),
+         bol.getValor(),
+         totalCP
+         };
 
-                tablaF.addRow(datos);
-                tablaF.addRow(datos1);
+         tablaF.addRow(datos);
+         tablaF.addRow(datos1);
 
-            }
+         }
 
-            subtotal = subtotal + totalCP;
-            txtSubtotal.setText(String.valueOf(subtotal));
+         subtotal = subtotal + totalCP;
+         txtSubtotal.setText(String.valueOf(subtotal));
 
-            iva = subtotal * 0.12;
-            txtIva.setText(String.valueOf(iva));
+         iva = subtotal * 0.12;
+         txtIva.setText(String.valueOf(iva));
 
-            total = subtotal + iva;
-            txtTotal.setText(String.valueOf(total));
+         total = subtotal + iva;
+         txtTotal.setText(String.valueOf(total));
 
-        }*/
+         }
     }//GEN-LAST:event_tblServFKeyReleased
 
     private void btnCancelarFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarFActionPerformed
-        // TODO add your handling code here:
-/*        x = null;
-        this.dispose();*/
+
+        x = null;
+        this.dispose();
+
     }//GEN-LAST:event_btnCancelarFActionPerformed
 
     private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
-       /* //obtener fecha
+        //obtener fecha
         fecha = new Date();
 
         //obtener clases
         String cedulaC = txtCedC.getText();
-        cliente = controladorCliente.readCedula(cedulaC);
-
-        String cedulaV = txtCodR.getText();
-        veterinario = controladorVeterinario.readCedula(cedulaV);
-
-        int codigoM = Integer.parseInt(txtCodM.getText());
-        mascota = controladorMascota.read(codigoM);
+        per = perCon.BuscarPer(cedulaC);
 
         //agregarDatos
-        factura.setFecha(fecha);
+        fCab.setFecha(fecha);
 
         //clases
-        factura.setVet(veterinario);
-        factura.setCli(cliente);
-        factura.setMasc(mascota);
+        fCab.setPer(per);
 
         //facDetalle
         for (int i = 0; i < tblServF.getRowCount() - 1; i++) {
             System.out.println("i " + i);
-            facDet = new FDetalle();
+            fDet = new Factura_Detalle();
 
             double cant = Integer.parseInt(tblServF.getValueAt(i, 1).toString());
             int cant1 = (int) cant;
-            facDet.setCantidad(cant1);
+            fDet.setCantidad(cant1);
 
-            //facDet.setCodigo(Integer.parseInt(tblServF.getValueAt(i, 0).toString()));
+         //facDet.setCodigo(Integer.parseInt(tblServF.getValueAt(i, 0).toString()));
             //int codigoS = ;
             //facDet.setServ(controladorServicio.read(Integer.parseInt(tblServF.getValueAt(i, 0).toString())));
-            facDet.setServ(controladorServicio.read(Integer.parseInt(tblServF.getValueAt(i, 0).toString())));
-            factura.añadirFacDetalle(facDet);
+            fDet.setBoleto(bolCon.BuscarBoleto(Integer.parseInt(tblServF.getValueAt(i, 0).toString())));
+            fCab.añadirFacDetalle(fDet);
             //            controladorFDetalle.create(facDet);
 
         }
 
         llenarDatos();
         //factura
-        factura.setSubtotal(subtotal);
-        factura.setIva(iva);
-        factura.setTotal(total);
+        fCab.setSubtotal(subtotal);
+        fCab.setIva(iva);
+        fCab.setTotal(total);
 
-        controladorFactura.create(factura);
+        fCabCon.createFacCab(fCab);
         JOptionPane.showMessageDialog(this, "Factura Creada");
-        System.out.println("factura \n" + factura.toString());
-        /*
-        txtRuc.setText(Integer.toString(controladorFactura.getCodigo()));
-        factura.setRuc(Integer.parseInt(txtRuc.getText()));*/
-
-        /*int ruc = this.controladorFactura.getCodigo() + 1;
-        txtRuc.setText(String.valueOf(ruc));
-        txtFecha.setText(controladorFactura.getFecha());
-
-        contador = 0;
-
-        vaciarDatos();
-        vaciarTabla();*/
+        System.out.println("factura \n" + fCab.toString());
+        
     }//GEN-LAST:event_btnCrearActionPerformed
+
+    public void llenarDatos() {
+        DefaultTableModel modeloP = (DefaultTableModel) tblServF.getModel();
+        List<Factura_Detalle> lista = fCab.getDetalle();
+
+        while (contador < lista.size()) {
+            Object[] datos2 = {fCab.getDetalle().get(contador).getCodigo(),
+                lista.get(contador).getCantidad(),
+                lista.get(contador).getBoleto().getCodigo(),
+                lista.get(contador).getBoleto().getValor(),
+                lista.get(contador).getTotalCP()
+            };
+            modeloP.addRow(datos2);
+            contador++;
+        }
+        
+    }
+
+    public void calcularSubtotal() {
+        double sub = 0;
+        for (int i = 0; i < fCab.getDetalle().size(); i++) {
+            sub += fCab.getDetalle().get(i).getTotalCP();
+        }
+        fCab.setSubtotal(sub);
+    }
+
+    public void calcularTotal() {
+        double tot = fCab.getSubtotal() + fCab.getIva();
+        fCab.setTotal(tot);
+    }
+
+     public void vaciarDatos() {
+
+        txtApeC.setText("");
+        txtApeV.setText("");
+        txtCedC.setText("");
+        txtCodC.setText("");
+        txtFecha.setText("");
+        txtIva.setText("");
+        txtNomC.setText("");
+        txtNomV.setText("");
+        txtSubtotal.setText("");
+        txtTotal.setText("");
+
+    }
 
     private void btnBuscarVFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarVFActionPerformed
 
-        
+
     }//GEN-LAST:event_btnBuscarVFActionPerformed
 
     private void btnBuscarVF1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarVF1ActionPerformed

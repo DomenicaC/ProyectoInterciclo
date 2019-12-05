@@ -6,6 +6,7 @@
 package ec.edu.ups.modelo;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  *
@@ -18,9 +19,10 @@ public class Factura_Cabecera {
     private double Subtotal;
     private double iva;
     private double total;
+    private List<Factura_Detalle> detalle;
     
     //clases 
-    private Usuario usu;
+    private Persona per;
     private Factura_Detalle facDet;
     private Modo_Pago modPago;
     private Viaje viaje;
@@ -28,13 +30,13 @@ public class Factura_Cabecera {
     public Factura_Cabecera() {
     }
 
-    public Factura_Cabecera(int ruc, Date fecha, double Subtotal, double iva, double total, Usuario usu, Factura_Detalle facDet, Modo_Pago modPago, Viaje viaje) {
+    public Factura_Cabecera(int ruc, Date fecha, double Subtotal, double iva, double total, Persona per, Factura_Detalle facDet, Modo_Pago modPago, Viaje viaje) {
         this.ruc = ruc;
         this.fecha = fecha;
         this.Subtotal = Subtotal;
         this.iva = iva;
         this.total = total;
-        this.usu = usu;
+        this.per = per;
         this.facDet = facDet;
         this.modPago = modPago;
         this.viaje = viaje;
@@ -80,12 +82,12 @@ public class Factura_Cabecera {
         this.total = total;
     }
 
-    public Usuario getUsu() {
-        return usu;
+    public Persona getPer() {
+        return per;
     }
 
-    public void setUsu(Usuario usu) {
-        this.usu = usu;
+    public void setPer(Persona per) {
+        this.per = per;
     }
 
     public Factura_Detalle getFacDet() {
@@ -112,9 +114,21 @@ public class Factura_Cabecera {
         this.viaje = viaje;
     }
 
+    public List<Factura_Detalle> getDetalle() {
+        return detalle;
+    }
+
+    public void setDetalle(List<Factura_Detalle> detalle) {
+        this.detalle = detalle;
+    }
+    
+    public void añadirFacDetalle(Factura_Detalle facturaDetalle){
+        detalle.add(facturaDetalle);
+    }
+
     @Override
     public String toString() {
-        return "Factura_Cabecera{" + "ruc=" + ruc + ", fecha=" + fecha + ", Subtotal=" + Subtotal + ", iva=" + iva + ", total=" + total + ", usu=" + usu + ", facDet=" + facDet + ", modPago=" + modPago + ", viaje=" + viaje + '}';
+        return "Factura_Cabecera{" + "ruc=" + ruc + ", fecha=" + fecha + ", Subtotal=" + Subtotal + ", iva=" + iva + ", total=" + total + ", per=" + per + ", facDet=" + facDet + ", modPago=" + modPago + ", viaje=" + viaje + '}';
     }
     
 }
