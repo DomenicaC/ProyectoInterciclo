@@ -17,6 +17,7 @@ public class Usuario extends Persona {
     private String usuario;
     private String password;
     private Byte foto;
+    private String tarjeta_credito;
     
     //clase
     private Preferencia pre;
@@ -24,12 +25,12 @@ public class Usuario extends Persona {
     public Usuario() {
     }
 
-    public Usuario(int codigo, String usuario, String password, Byte foto, Preferencia pre) {
+    public Usuario(int codigo, String usuario, String password,String tarjeta_credito) {
         this.codigo = codigo;
         this.usuario = usuario;
         this.password = password;
-        this.foto = foto;
-        this.pre = pre;
+        this.tarjeta_credito = tarjeta_credito;
+       
     }
 
     public int getCodigo() {
@@ -72,6 +73,15 @@ public class Usuario extends Persona {
         this.pre = pre;
     }
 
+    public String getTarjeta_credito() {
+        return tarjeta_credito;
+    }
+
+    public void setTarjeta_credito(String tarjeta_credito) {
+        this.tarjeta_credito = tarjeta_credito;
+    }
+
+    
     @Override
     public String toString() {
         return "Usuario{" + "codigo=" + codigo + ", usuario=" + usuario + ", password=" + password + ", foto=" + foto + ", pre=" + pre + '}';

@@ -254,8 +254,8 @@
                           <Component id="jTextField5" min="-2" pref="130" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace min="890" pref="890" max="-2" attributes="0"/>
-                  <Component id="jButton3" min="-2" pref="160" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="875" max="-2" attributes="0"/>
+                  <Component id="jButton3" min="-2" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -317,12 +317,12 @@
         <Component class="javax.swing.JButton" name="jButton3">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Dialog" size="18" style="1"/>
+              <Font name="Segoe UI" size="12" style="1"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/ec/edu/ups/imagenes/Login_37128.png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="SALIR"/>
+            <Property name="text" type="java.lang.String" value="CERRAR SESI&#xd3;N"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
           <Events>

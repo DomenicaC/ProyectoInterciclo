@@ -45,10 +45,10 @@ public class CrearUsuario extends javax.swing.JInternalFrame {
         formato = new SimpleDateFormat("yyyy-MM-dd");
         x = "x";
         
-//        int a = MenuPrincipal.desktopPane.getWidth() - this.getWidth();
-  //      int b = MenuPrincipal.desktopPane.getHeight() - this.getHeight();
-    //    setLocation(a / 2, b / 2);
-      //  setVisible(true); 
+        int a = MenuPrincipal.desktopPane.getWidth() - this.getWidth();
+        int b = MenuPrincipal.desktopPane.getHeight() - this.getHeight();
+        setLocation(a / 2, b / 2);
+        setVisible(true); 
     }
 
     /**
@@ -78,6 +78,8 @@ public class CrearUsuario extends javax.swing.JInternalFrame {
         jButton2 = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
         txtcedula = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
 
         jTextField2.setText("jTextField2");
@@ -100,8 +102,8 @@ public class CrearUsuario extends javax.swing.JInternalFrame {
         getContentPane().add(txtusuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 140, 100, -1));
 
         jLabel2.setFont(new java.awt.Font("Eras Medium ITC", 1, 12)); // NOI18N
-        jLabel2.setText("Password:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 140, -1, -1));
+        jLabel2.setText("Tarjeta Crédito:");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 180, -1, -1));
         getContentPane().add(txtcontraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 140, 103, -1));
         getContentPane().add(txtfecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 170, 100, -1));
 
@@ -115,7 +117,7 @@ public class CrearUsuario extends javax.swing.JInternalFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, -1, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 220, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Eras Medium ITC", 1, 12)); // NOI18N
         jLabel7.setText("Nombre:");
@@ -155,12 +157,17 @@ public class CrearUsuario extends javax.swing.JInternalFrame {
         getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, -1, -1));
 
         jButton2.setText("Cancelar");
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 210, 94, -1));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 220, 94, -1));
 
         jLabel11.setFont(new java.awt.Font("Eras Medium ITC", 1, 12)); // NOI18N
         jLabel11.setText("Cédula:");
         getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, -1));
         getContentPane().add(txtcedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, 100, -1));
+
+        jLabel3.setFont(new java.awt.Font("Eras Medium ITC", 1, 12)); // NOI18N
+        jLabel3.setText("Password:");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 140, -1, -1));
+        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 180, 80, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/fondoventabas.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, -10, 410, 260));
@@ -225,11 +232,13 @@ public class CrearUsuario extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField txtapellido;
     private javax.swing.JTextField txtcedula;

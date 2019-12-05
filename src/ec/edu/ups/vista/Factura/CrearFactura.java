@@ -71,8 +71,9 @@ public class CrearFactura extends javax.swing.JInternalFrame {
         lblNomV1 = new javax.swing.JLabel();
         txtNomV1 = new javax.swing.JTextField();
         lblCodV1 = new javax.swing.JLabel();
-        txtCallPrin1 = new javax.swing.JTextField();
         btnBuscarVF1 = new javax.swing.JButton();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jTextField1 = new javax.swing.JTextField();
 
         setClosable(true);
         setIconifiable(true);
@@ -381,9 +382,7 @@ public class CrearFactura extends javax.swing.JInternalFrame {
 
         lblCodV1.setBackground(new java.awt.Color(255, 255, 255));
         lblCodV1.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
-        lblCodV1.setText("Tarjeta de credito");
-
-        txtCallPrin1.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
+        lblCodV1.setText("Método de Pago");
 
         btnBuscarVF1.setText("Validar");
         btnBuscarVF1.addActionListener(new java.awt.event.ActionListener() {
@@ -391,6 +390,8 @@ public class CrearFactura extends javax.swing.JInternalFrame {
                 btnBuscarVF1ActionPerformed(evt);
             }
         });
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Opciones", "Efectivo", "Tarjeta Credito" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -450,11 +451,13 @@ public class CrearFactura extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(56, 56, 56)
                 .addComponent(lblCodV1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtCallPrin1, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
+                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jTextField1)
+                .addGap(18, 18, 18)
                 .addComponent(btnBuscarVF1)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(128, 128, 128))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -477,8 +480,9 @@ public class CrearFactura extends javax.swing.JInternalFrame {
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCodV1)
-                    .addComponent(txtCallPrin1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBuscarVF1))
+                    .addComponent(btnBuscarVF1)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -668,9 +672,11 @@ public class CrearFactura extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnBuscarVF1;
     private javax.swing.JButton btnCancelarF;
     private javax.swing.JButton btnCrear;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lblApeC;
     private javax.swing.JLabel lblApeV;
     private javax.swing.JLabel lblCedC;
@@ -693,7 +699,6 @@ public class CrearFactura extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtApeC;
     private javax.swing.JTextField txtApeV;
     private javax.swing.JTextField txtCallPrin;
-    private javax.swing.JTextField txtCallPrin1;
     private javax.swing.JTextField txtCedC;
     private javax.swing.JTextField txtCodC;
     private javax.swing.JTextField txtCodR;

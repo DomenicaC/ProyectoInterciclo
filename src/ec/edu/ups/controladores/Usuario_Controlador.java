@@ -40,8 +40,9 @@ public class Usuario_Controlador {
 
   
     public void create(Usuario usuario) {
-        String sql = "INSERT INTO \"Usuario\" VALUES('"+usuario.getUsuario()+"','"
-                + usuario.getPassword()                             
+        String sql = "INSERT INTO \"Usuario\" VALUES('"+usuario.getUsuario()
+                +"','"+ usuario.getPassword()+"','"+ usuario.getCodigo() 
+                +"','"+ usuario.getTarjeta_credito()
                 +  "');";
 
         System.out.println(sql);

@@ -22,7 +22,7 @@ public class Fondo implements Border{
  
     public Fondo(){
         try {
-            URL imagePath = new URL(getClass().getResource("../imagenes/1.png").toString());
+            URL imagePath = new URL(getClass().getResource("../imagenes/fondoventabas.png").toString());
             back = ImageIO.read(imagePath);
         } catch (Exception ex) {            
         }
