@@ -5,9 +5,15 @@
  */
 package ec.edu.ups.sesion;
 
+import ec.edu.ups.baseDatos.BaseDatos;
+import ec.edu.ups.controladores.Usuario_Controlador;
+import ec.edu.ups.modelo.Usuario;
 import ec.edu.ups.vista.MenuPrincipal;
 import static ec.edu.ups.vista.MenuPrincipal.desktopPane;
 import ec.edu.ups.vista.usuario.CrearUsuario;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -17,11 +23,12 @@ import javax.swing.JOptionPane;
  */
 public class Inicio_Sesion extends javax.swing.JFrame {
  
- 
+    BaseDatos baseDatos;
     String url = "jdbc:postgresql://localhost:5432/Proyecto_Interciclo";
     String user = "postgres";
     String password = "QLJPikrq7833";
     private Registro1 registro1;
+ 
     
     /**
      * Creates new form Inicio_Sesion
@@ -159,33 +166,26 @@ public class Inicio_Sesion extends javax.swing.JFrame {
 
     private void botoningresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botoningresarActionPerformed
         // TODO add your handling code here:
-        String Usuario = "admin";
-        String Contraseña = "admin";
-        String Pass = new String(txtcontraseña.getPassword());
-        if (txtusuario.getText().equals(Usuario) && Pass.equals(Contraseña)) {
-            MenuPrincipal si = new MenuPrincipal();
-            si.setVisible(true);
-            dispose();
-
-        } else {
-            JOptionPane.showMessageDialog(this, "Usuario / Contraseña Incorrecta");
+        Usuario_Controlador uc = new Usuario_Controlador(url, user, password);
+        Usuario p = new Usuario();        try {
+            p = uc.BuscarUsuario(txtusuario.getText(),txtcontraseña.getText());    
+            if(p.getPassword()!=null && p.getUsuario() !=null){
+                MenuPrincipal si = new MenuPrincipal();
+                si.setVisible(true);                
+            }else{
+           JOptionPane.showMessageDialog(this, "No existe la persona", "Buscar Persona", JOptionPane.OK_OPTION);            
         }
-
+        } catch (SQLException ex) {
+            Logger.getLogger(Inicio_Sesion.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        
     }//GEN-LAST:event_botoningresarActionPerformed
 
     private void botoningresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botoningresarMouseClicked
 
-        String Usuario = "admin";
-        String Contraseña = "admin";
-        String Pass = new String(txtcontraseña.getPassword());
-        if (txtusuario.getText().equals(Usuario) && Pass.equals(Contraseña)) {
-            MenuPrincipal si = new MenuPrincipal();
-            si.setVisible(true);
-            dispose();
-
-        } else {
-            JOptionPane.showMessageDialog(this, "Usuario / Contraseña Incorrecta");
-        }
+   
     }//GEN-LAST:event_botoningresarMouseClicked
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed

@@ -15,6 +15,7 @@ import java.sql.SQLException;
  */
 public class BaseDatos {
      private Connection conexionBD;
+     Connection conn= null;
     
     public BaseDatos(String usl ,String user, String password) {        
     }
@@ -32,6 +33,7 @@ public class BaseDatos {
         String url = "jdbc:postgresql://localhost:5432/Proyecto_Interciclo";
         String user = "postgres";
         String password = "QLJPikrq7833";
+        
 
         try {
             conexionBD = DriverManager.getConnection(url, user, password);

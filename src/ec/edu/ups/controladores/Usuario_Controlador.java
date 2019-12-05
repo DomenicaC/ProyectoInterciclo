@@ -8,11 +8,13 @@ package ec.edu.ups.controladores;
 import ec.edu.ups.baseDatos.BaseDatos;
 import ec.edu.ups.modelo.Persona;
 import ec.edu.ups.modelo.Usuario;
+import ec.edu.ups.vista.MenuPrincipal;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.HashSet;
 import java.util.Set;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -56,6 +58,33 @@ public class Usuario_Controlador {
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
+    }
+    
+    
+    
+    public Usuario BuscarUsuario(String usuario,String password) throws SQLException{
+        Usuario usuario1 = new Usuario();
+        try{
+            String sql = "SELECT * FROM \"Usuario\" WHERE\"usuario\"='"+usuario+ "' AND \"password\"='"+password+"';";
+            System.out.println("Base "+ sql);
+            MiBaseDatos.conectar();
+            Statement sta = MiBaseDatos.getConexionBD().createStatement();
+            ResultSet res = sta.executeQuery(sql);
+            while(res.next()){
+                usuario1.setUsuario("usuario");
+                usuario1.setPassword("password");           
+            }
+            res.close();
+            sta.close();
+            MiBaseDatos.desconectar();
+            
+        }catch (SQLException error) {
+
+            error.printStackTrace();
+        }
+        
+        
+    return usuario1;
     }
     
     /*public Usuario BuscarAuto(String cedula) {
