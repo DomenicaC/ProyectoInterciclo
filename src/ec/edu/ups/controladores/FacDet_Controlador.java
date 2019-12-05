@@ -6,8 +6,7 @@
 package ec.edu.ups.controladores;
 
 import ec.edu.ups.baseDatos.BaseDatos;
-import ec.edu.ups.modelo.Boleto;
-import ec.edu.ups.modelo.Factura_Cabecera;
+import ec.edu.ups.modelo.Factura_Detalle;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -18,32 +17,22 @@ import java.util.Set;
  *
  * @author Domenica Cañizares
  */
-public class FacturaCab_Controlador {
+public class FacDet_Controlador {
 
     private BaseDatos MiBaseDatos;
     String url = "jdbc:postgresql://localhost:5432/Proyecto_Interciclo";
     String user = "postgres";
     String password = "QLJPikrq7833";
 
-    public FacturaCab_Controlador(String url, String user, String password) {
+    public FacDet_Controlador(String url, String user, String password) {
 
         MiBaseDatos = new BaseDatos(url, user, password);
 
     }
-    
-    /*
-    tabla Factura_Cabecera
-    Columnas
-    fCab_ruc
-    fCab_fecha
-    fCab_subtotal
-    fCab_iva
-    fCab_total
-    */
-    
-    public void createFacCab(Factura_Cabecera facCab) {
 
-        String sql = "INSERT INTO \"Factura_Cabecera\" VALUES(" + facCab.getRuc()+ "," + facCab.getFecha() + "," + facCab.getSubtotal() + "," + facCab.getIva()+"," + facCab.getTotal()+");";
+    public void createFacDet(Factura_Detalle facDet) {
+
+        String sql = "INSERT INTO \"Factura_Detalle\" VALUES(" + facDet.getCantidad() + "," + facDet.getTotalCP() + "," + facDet.getCodigo() + ");";
 
         System.out.println(sql);
 
@@ -59,14 +48,14 @@ public class FacturaCab_Controlador {
         }
 
     }
-    
-    public Factura_Cabecera BuscarFacCab(int ruc) {
 
-        Factura_Cabecera facCab = new Factura_Cabecera();
+    public Factura_Detalle BuscarFacCab(int codigo) {
+
+        Factura_Detalle facDet = new Factura_Detalle();
 
         try {
 
-            String sql = "SELECT * FROM \"Factura_Cabecera\"WHERE\"ruc\"= " + ruc + ";";
+            String sql = "SELECT * FROM \"Factura_Detalle\"WHERE\"codigo\"= " + codigo + ";";
             System.out.println("BASE" + sql);
 
             MiBaseDatos.conectar();
@@ -75,11 +64,9 @@ public class FacturaCab_Controlador {
 
             while (res.next()) {
 
-                facCab.setRuc(ruc);
-                facCab.setFecha(res.getDate("fecha"));
-                facCab.setSubtotal(res.getDouble("subtotal"));
-                facCab.setIva(res.getDouble("iva"));
-                facCab.setTotal(res.getDouble("total"));
+                facDet.setCodigo(codigo);
+                facDet.setCantidad(res.getInt("cantidad"));
+                facDet.setTotalCP(res.getDouble("total"));
 
             }
             res.close();
@@ -89,38 +76,13 @@ public class FacturaCab_Controlador {
         } catch (SQLException error) {
             error.printStackTrace();
         }
-        return facCab;
+        return facDet;
 
     }
-    
-    /*public void updateFacCab(Factura_Cabecera facCab) {
 
-        String sql = "UPDATE\"Factura_Cabecera\" SET \"ruc\" = "
-                + facCab.getRuc()+ ",\"fecha\" = "
-                + facCab.getFecha()+ ",\"subtotal\" = "
-                + facCab.getSubtotal()+ ",\"iva\" = "
-                + facCab.getIva()+ ",\"total\" = "
-                + facCab.getTotal() + " WHERE \"fCab_ruc\" = " + facCab.getRuc() + ";";
-        System.out.println("BASE ACTUALIZADA" + sql);
+    public void deleteFacDet(int codigo) {
 
-        MiBaseDatos.conectar();
-        try {
-
-            Statement sta = MiBaseDatos.getConexionBD().createStatement();
-            sta.execute(sql);
-            MiBaseDatos.desconectar();
-
-        } catch (SQLException error) {
-
-            error.printStackTrace();
-
-        }
-
-    }*/
-    
-    public void deleteFacCab(int ruc) {
-
-        String sql = "DELETE FROM \"Factura_Cabecera \"WHERE \"ruc \" = " + ruc + ";";
+        String sql = "DELETE FROM \"Factura_Detalle \"WHERE \"codigo \" = " + codigo + ";";
         System.out.println("Base eliminada " + sql);
 
         MiBaseDatos.conectar();
@@ -137,10 +99,10 @@ public class FacturaCab_Controlador {
         }
 
     }
-    
+
     public Set printFacCab() {
 
-        Set<Factura_Cabecera> lista = new HashSet<>();
+        Set<Factura_Detalle> lista = new HashSet<>();
 
         try {
 
@@ -153,12 +115,10 @@ public class FacturaCab_Controlador {
 
             while (res.next()) {
 
-                Factura_Cabecera facCab = new Factura_Cabecera();
-                facCab.setRuc(res.getInt("fCab_ruc"));
-                facCab.setFecha(res.getDate("fCab_fecha"));
-                facCab.setSubtotal(res.getDouble("fCab_subtotal"));
-                facCab.setIva(res.getDouble("fCab_iva"));
-                facCab.setTotal(res.getDouble("fCab_total"));
+                Factura_Detalle facDet = new Factura_Detalle();
+                facDet.setCodigo(res.getInt("codigo"));
+                facDet.setCantidad(res.getInt("cantidad"));
+                facDet.setTotalCP(res.getDouble("total"));
 
             }
             res.close();

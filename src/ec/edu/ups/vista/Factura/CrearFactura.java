@@ -90,6 +90,9 @@ public class CrearFactura extends javax.swing.JInternalFrame {
         setLocation(a / 2, b / 2);
         setVisible(true);
 
+        txtTarjeta.setVisible(false);
+        btnVal.setVisible(false);
+
     }
 
     /**
@@ -139,9 +142,9 @@ public class CrearFactura extends javax.swing.JInternalFrame {
         lblNomV1 = new javax.swing.JLabel();
         txtNomV1 = new javax.swing.JTextField();
         lblCodV1 = new javax.swing.JLabel();
-        btnBuscarVF1 = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<String>();
-        jTextField1 = new javax.swing.JTextField();
+        btnVal = new javax.swing.JButton();
+        cboMet = new javax.swing.JComboBox<String>();
+        txtTarjeta = new javax.swing.JTextField();
 
         setClosable(true);
         setIconifiable(true);
@@ -415,14 +418,19 @@ public class CrearFactura extends javax.swing.JInternalFrame {
         lblCodV1.setFont(new java.awt.Font("Rockwell", 1, 18)); // NOI18N
         lblCodV1.setText("Método de Pago");
 
-        btnBuscarVF1.setText("Validar");
-        btnBuscarVF1.addActionListener(new java.awt.event.ActionListener() {
+        btnVal.setText("Validar");
+        btnVal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBuscarVF1ActionPerformed(evt);
+                btnValActionPerformed(evt);
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Opciones", "Efectivo", "Tarjeta Credito" }));
+        cboMet.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Opciones", "Efectivo", "Tarjeta Credito" }));
+        cboMet.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cboMetActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -480,11 +488,11 @@ public class CrearFactura extends javax.swing.JInternalFrame {
                 .addGap(56, 56, 56)
                 .addComponent(lblCodV1)
                 .addGap(18, 18, 18)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cboMet, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextField1)
+                .addComponent(txtTarjeta)
                 .addGap(18, 18, 18)
-                .addComponent(btnBuscarVF1)
+                .addComponent(btnVal)
                 .addGap(128, 128, 128))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(13, Short.MAX_VALUE)
@@ -512,9 +520,9 @@ public class CrearFactura extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCodV1)
-                    .addComponent(btnBuscarVF1)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnVal)
+                    .addComponent(cboMet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtTarjeta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
@@ -558,64 +566,64 @@ public class CrearFactura extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnBuscarCFActionPerformed
 
     private void tblServFKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tblServFKeyReleased
-         int key = evt.getKeyCode();
-         if (key == KeyEvent.VK_ENTER) {
-         int fila = tblServF.getSelectedRow();
-         int columna = tblServF.getSelectedColumn();
-         int codigoBol = 0;
+        int key = evt.getKeyCode();
+        if (key == KeyEvent.VK_ENTER) {
+            int fila = tblServF.getSelectedRow();
+            int columna = tblServF.getSelectedColumn();
+            int codigoBol = 0;
 
-         Object[] datos1 = {"", 0, "", "", ""};
+            Object[] datos1 = {"", 0, "", "", ""};
 
-         if (columna == 0) {
-         codigoBol = Integer.parseInt(tblServF.getValueAt(fila, columna).toString());
-         bol = bolCon.BuscarBoleto(codigoBol);
+            if (columna == 0) {
+                codigoBol = Integer.parseInt(tblServF.getValueAt(fila, columna).toString());
+                bol = bolCon.BuscarBoleto(codigoBol);
 
-         int cant = Integer.parseInt(tblServF.getValueAt(fila, 1).toString());
+                int cant = Integer.parseInt(tblServF.getValueAt(fila, 1).toString());
 
-         tablaF = (DefaultTableModel) tblServF.getModel();
-         tablaF.removeRow(fila);
-         totalCP = cant * bol.getValor();
+                tablaF = (DefaultTableModel) tblServF.getModel();
+                tablaF.removeRow(fila);
+                totalCP = cant * bol.getValor();
 
-         Object[] datos = {codigoBol,
-         cant,
-         bol.getCodigo(),
-         bol.getValor(),
-         totalCP
-         };
+                Object[] datos = {codigoBol,
+                    cant,
+                    bol.getCodigo(),
+                    bol.getValor(),
+                    totalCP
+                };
 
-         tablaF.addRow(datos);
-         tablaF.addRow(datos1);
-         } else if (columna == 1) {
+                tablaF.addRow(datos);
+                tablaF.addRow(datos1);
+            } else if (columna == 1) {
 
-         codigoBol = Integer.parseInt(tblServF.getValueAt(fila, columna - 1).toString());
-         int cant = Integer.parseInt(tblServF.getValueAt(fila, columna).toString());
-         tablaF.removeRow(fila);
-         tablaF.removeRow(tblServF.getRowCount() - 1);
+                codigoBol = Integer.parseInt(tblServF.getValueAt(fila, columna - 1).toString());
+                int cant = Integer.parseInt(tblServF.getValueAt(fila, columna).toString());
+                tablaF.removeRow(fila);
+                tablaF.removeRow(tblServF.getRowCount() - 1);
 
-         totalCP = cant * bol.getValor();
+                totalCP = cant * bol.getValor();
 
-         Object[] datos = {codigoBol,
-         cant,
-         bol.getCodigo(),
-         bol.getValor(),
-         totalCP
-         };
+                Object[] datos = {codigoBol,
+                    cant,
+                    bol.getCodigo(),
+                    bol.getValor(),
+                    totalCP
+                };
 
-         tablaF.addRow(datos);
-         tablaF.addRow(datos1);
+                tablaF.addRow(datos);
+                tablaF.addRow(datos1);
 
-         }
+            }
 
-         subtotal = subtotal + totalCP;
-         txtSubtotal.setText(String.valueOf(subtotal));
+            subtotal = subtotal + totalCP;
+            txtSubtotal.setText(String.valueOf(subtotal));
 
-         iva = subtotal * 0.12;
-         txtIva.setText(String.valueOf(iva));
+            iva = subtotal * 0.12;
+            txtIva.setText(String.valueOf(iva));
 
-         total = subtotal + iva;
-         txtTotal.setText(String.valueOf(total));
+            total = subtotal + iva;
+            txtTotal.setText(String.valueOf(total));
 
-         }
+        }
     }//GEN-LAST:event_tblServFKeyReleased
 
     private void btnCancelarFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarFActionPerformed
@@ -648,7 +656,7 @@ public class CrearFactura extends javax.swing.JInternalFrame {
             int cant1 = (int) cant;
             fDet.setCantidad(cant1);
 
-         //facDet.setCodigo(Integer.parseInt(tblServF.getValueAt(i, 0).toString()));
+            //facDet.setCodigo(Integer.parseInt(tblServF.getValueAt(i, 0).toString()));
             //int codigoS = ;
             //facDet.setServ(controladorServicio.read(Integer.parseInt(tblServF.getValueAt(i, 0).toString())));
             fDet.setBoleto(bolCon.BuscarBoleto(Integer.parseInt(tblServF.getValueAt(i, 0).toString())));
@@ -666,7 +674,7 @@ public class CrearFactura extends javax.swing.JInternalFrame {
         fCabCon.createFacCab(fCab);
         JOptionPane.showMessageDialog(this, "Factura Creada");
         System.out.println("factura \n" + fCab.toString());
-        
+
     }//GEN-LAST:event_btnCrearActionPerformed
 
     public void llenarDatos() {
@@ -683,7 +691,7 @@ public class CrearFactura extends javax.swing.JInternalFrame {
             modeloP.addRow(datos2);
             contador++;
         }
-        
+
     }
 
     public void calcularSubtotal() {
@@ -699,7 +707,7 @@ public class CrearFactura extends javax.swing.JInternalFrame {
         fCab.setTotal(tot);
     }
 
-     public void vaciarDatos() {
+    public void vaciarDatos() {
 
         txtApeC.setText("");
         txtApeV.setText("");
@@ -719,22 +727,36 @@ public class CrearFactura extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_btnBuscarVFActionPerformed
 
-    private void btnBuscarVF1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarVF1ActionPerformed
+    private void btnValActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnValActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnBuscarVF1ActionPerformed
+    }//GEN-LAST:event_btnValActionPerformed
+
+    private void cboMetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboMetActionPerformed
+
+        if (cboMet.getSelectedItem() == "Efectivo") {
+
+            JOptionPane.showConfirmDialog(this, "A elegido la opcion 'Efectivo'");
+
+        } else if (cboMet.getSelectedItem() == "Efectivo") {
+
+            txtTarjeta.setVisible(true);
+            btnVal.setVisible(true);
+
+        }
+
+    }//GEN-LAST:event_cboMetActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscarCF;
     private javax.swing.JButton btnBuscarVF;
-    private javax.swing.JButton btnBuscarVF1;
     private javax.swing.JButton btnCancelarF;
     private javax.swing.JButton btnCrear;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JButton btnVal;
+    private javax.swing.JComboBox<String> cboMet;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lblApeC;
     private javax.swing.JLabel lblApeV;
     private javax.swing.JLabel lblCedC;
@@ -765,6 +787,7 @@ public class CrearFactura extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtNomV1;
     private javax.swing.JTextField txtRuc;
     private javax.swing.JTextField txtSubtotal;
+    private javax.swing.JTextField txtTarjeta;
     private javax.swing.JTextField txtTotal;
     // End of variables declaration//GEN-END:variables
 }
